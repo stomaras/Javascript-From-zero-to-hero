@@ -1,3 +1,4 @@
+/* Variable and Data Types */
 var firstName = 'Spyros';
 console.log(firstName);
 
