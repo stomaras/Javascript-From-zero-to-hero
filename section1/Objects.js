@@ -1,22 +1,27 @@
-/***********************************
-* Objects and properties
+/******************************
+* Objects and methods
 */
 
 var john = {
-    firstname: 'John',
-    lastname: 'Smith',
-    birthYear: 1990,
-    family: ['Jane','Mark','Bob','Emily'],
-    job: 'teacher',
-    isMarried: false
+    firstName: 'John',
+    lastName:'Smith',
+    birthYear:1991,
+    family:['Jane','Mark','Bob','Emily'],
+    job:'teacher',
+    isMarried:false,
+    /*calcAge: function(birthYear){
+        return 2020 - birthYear;
+    }*/
+    /* this what it means here is the context is John so this means the present the current object.... so this means john birthyear 
+    */
+    calcAge: function(){
+        this.age = 2020 - this.birthYear;
+    }
 };
-console.log(john.firstname);
-john.job = 'designer';
-john['isMarried'] = true;
-console.log(john);
 
-var jane = new Object();
-jane.firstname = 'Jane';
-jane.birthYear = 1969;
-jane['lastName'] = 'Smith';
-console.log(jane);
+//console.log(john.calcAge());
+/* What if we actually wanted to store this result right into the John object 
+*/
+
+john.calcAge();
+console.log(john);
