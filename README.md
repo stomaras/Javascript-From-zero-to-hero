@@ -74,6 +74,8 @@ THE VARIABLE OBJECT
     
     the 2 above is called HOISTING 
     
+the this keyword points at the global object,(the window object, in the browser)
+    
     
 
 
