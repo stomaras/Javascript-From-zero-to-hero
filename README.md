@@ -58,6 +58,24 @@ Function Declaration is also on global context
 
 Global Execution Context -> Execution Context
 
+Execution Context Object
+Variable Object (VO)
+Scope chain
+"This" variable
+
+
+THE VARIABLE OBJECT
+
+    -> The argument object is created, containing all the arguments that were passed into the function
+    
+    -> Code is scanned for function declarations: for each function, a property is created in the Variable Object, pointing to the func
+    
+    -> Code is scanned for variable declarations: for each variable, a property is created in the Varibale Object, and set to undefined
+    
+    the 2 above is called HOISTING 
+    
+    
+
 
 
 
