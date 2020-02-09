@@ -37,3 +37,31 @@ The first thing that happens inside the engine is that our code is parsed by a p
 and checks if the syntax of the code that we gave it, is correct so this means that the parser knows the js rules 
 If everything is ok parser produce a Data Structure known as Abstract Syntax Tree which is then translated into machine code 
 So the code is a set of instructions that can be executed directly by the computer's processor 
+
+# Execution context
+
+A box, a container, or a wrapper which stores variables and in which a piece of our code is executed
+The deafult execution context is always the global context 
+Global Execution Context is for variables and functions that are not inside of any function 
+Code that is not inside any function associated with the global object 
+In the browser, that's the window object 
+So everything that we declare in the global context automatically gets attached to the window object in the browser
+declaring a variable called lastname 
+
+lastName === window.lastName
+// True 
+
+So the Global Execution Context is for code that is not inside of any function 
+But what about code that is in functions ?
+
+Function Declaration is also on global context 
+
+Global Execution Context -> Execution Context
+
+
+
+
+
+
+
+
