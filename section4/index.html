@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Section 5: Advanced JavaScript: Objects and Functions</title>
+    </head>
+
+    <body>
+        <h1>Section 5: Advanced JavaScript: Objects and Functions</h1>
+        <!--<script src="script.js"></script>-->
+        <script src="scripting.js"></script>
+    </body>
+</html>
+<!-- In javaScript we have two big types of values, primitives and objects 
+
+---- Primitives: 1) Numbers
+                 2) Strings
+                 3) Booleans
+                 4) Undefined
+                 5) Null
+---- Everything else: 1) Arrays
+                      2) Functions
+                      3) Objects
+                      4) Dates
+                      5) Wrappers for Numbers,
+                         Strings, Booleans
+---- IS AN OBJECT 
+
+---- In JavaScript objects are not just for storing a bunch of data like we have been doing 
+     but for really complex things under the surface 
+     Everything is an Object in JavaScript because it's one of the fundamental things 
+     that makes javaScript so unique and different from other popular programming languages
+     
+--- OBJECT-ORIENTED PROGRAMMING 
+
+    Objects interacting with one another through methods and properties;
+    
+    Used to store data, structure applications into modules and keeping code clean.
+
+    The classes in javaScript are called as COSTRUCTOR or PROTOTYPE and based on the prototype
+    we can create as many instances as we want 
+    So for example from the Person Constructor i can create Instances as jane, mark, John
+
+---- Inheritance ----
+
+    In Simple terms inheritance is when one object is based on another object , it's when one object
+    get access to another object's properties and methods.
+    So very Simple 
+
+    Back to our persons example, imagine that you also wanted to have an athlete constructor 
+    besides the person constructor with a couple of different properties and methods
+
+    Person: name
+            yearOfBirth
+            job
+            calculateAge()
+            
+    Athlete: olympics
+             olympicMedals
+             allowedOlympics()
+
+    Now an athlete is also a person ... there are just some particular properties and methods
+    for an athlete, like for example how many participations in Olympics they have or how many medals
+    they have won. With inheritance we make the Athlete Object inherit the properties and methods from
+    the Person object, so athlete has access to his own properties but also to the objects of person 
+    so Athlete becomes:
+
+    Athlete: olympics
+             olympicMedals
+             allowedOlympics()
+             name
+             yearOfBirth
+             isMarried
+             calculateAge()
+    
+    So with this way we write more logical code and write more logical programs
+
+    Inheritance in javaScript is made possible through the prototype property that every object has 
+
+    Every Object that we create is an instance of the Object constructor which has a bunch of methods 
+
+    in its prototype property.
+
+    Prototype chain makes all the inheritance possible 
+
+    NOTES ! ! !
+
+    1) Every JavaScript object has a prototype property, which makes injeritance possible in JS
+
+    2) The prototype property of an object is where we put methods and properties that we want 
+       other objects to inherit 
+
+    3) The Constructor's prototype property is NOT the prototype of the Consrtuctor itself,it's the 
+       prototype of ALL instances that are created through it;
