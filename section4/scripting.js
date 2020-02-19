@@ -187,4 +187,28 @@ designerQuestion('Jane');
 interviewQuestion('teacher')('Tom');
 
 
+// if the only purpose is to hide the score variable from the outside so which means creating 
+// a private variable then we don't need to declare a whole function with a name and then call it
+// we can do it with better way , with Immediately Invoked Function Expression
+
+// What is in parenthesses cannot be a statement and js know that it should treat this 
+// as an expression , with this way we create data privacy here
+
+
+// Immediatly Invoked Function Expression used for data privacy.
+(function game(){
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+})();
+
+//console.log(score);
+
+(function (goodLuck) {
+    var score = Math.random() * 10;
+    console.log(score >= 5 - goodLuck);
+})(5);
+
+
+
+
 
