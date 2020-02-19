@@ -210,5 +210,78 @@ interviewQuestion('teacher')('Tom');
 
 
 
+// Lecture: IIFE 
+
+// Immediately Invoked Functions Expressions 
+
+// Imagine that we wanted to build a little game where we win the game if a random score from zero to // nine is greater or equal to five, and lose if it's smaller so just  a small and silly game really
+// But we want to keep the score hidden in this game, OK so the score should not be visible 
+// The way is to write a simple function , because we know that varibales defined inside the funvtion cannot be accessed from the outside scope, right.
+
+function game(){
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+}
+game();
+
+// if the only purpose is to hide the score variable from the outside so which means creating 
+// a private variable then we don't need to declare a whole function with a name and then call it
+// we can do it with better way , with Immediately Invoked Function Expression
+
+// What is in parenthesses cannot be a statement and js know that it should treat this 
+// as an expression , with this way we create data privacy here
+
+
+// Immediatly Invoked Function Expression used for data privacy.
+(function game(){
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+})();
+
+//console.log(score);
+
+(function (goodLuck) {
+    var score = Math.random() * 10;
+    console.log(score >= 5 - goodLuck);
+})(5);
+
+// Lecture: Closures 
+
+function retirement(retirementAge) {
+    var a = ' years left until retirement.';
+    return function(yearOfBirth) {
+        var age = 2020 - yearOfBirth;
+        console.log((retirementAge - age) + a);
+    }
+}
+
+var retirementUS = retirement(66);
+var retirementGermany = retirement(65);
+var retirementIceland = retirement(67);
+
+retirementGermany(1990);
+retirementUS(1990);
+retirementIceland(1990);
+
+
+
+//retirement(66)(1990);
+
+function interviewQuestion(job){
+    return function(name){
+        if(job === 'designer') {
+            console.log(name + ', can you please explain that UX design is?');
+        }else if( job === 'teacher'){
+            console.log('What subject do you teach, ' + name + '?');
+        }else{
+            console.log('Hello' + name + ', what do you do ?');
+        }
+    }
+}
+
+interviewQuestion('teacher')('John');
+
+
+
 
 
