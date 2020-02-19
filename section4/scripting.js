@@ -37,3 +37,28 @@ mark.calculateAge();
 console.log(john.lastName);
 console.log(jane.lastName);
 console.log(mark.lastName);
+// hasOwnProperty is a method that we inherit from object 
+// instanceOf operator also inherit 
+
+// More ways to create Objects in JS
+// Object.create builds an object that inherits directly from the one that we passed into the first
+// argument
+// Object. create and costructors patterns are the most common way to create object
+var personProto = {
+    calculateAge: function(){
+        console.log(2020 - this.yearOfBirth);
+    }
+};
+
+var john = Object.create(personProto);
+john.name = 'John';
+john.yearOfBirth = 1990;
+john.job = 'teacher';
+
+
+var  jane = Object.create(personProto,
+{
+    name:{ value: 'Jane'},
+    yearOfBirth: { value: 1969 },
+    job: { value: 'designer'}
+});
