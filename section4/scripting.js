@@ -282,6 +282,88 @@ function interviewQuestion(job){
 interviewQuestion('teacher')('John');
 
 
+// Lecture: Bind, call and apply 
+
+var john = {
+    name: 'John',
+    age: 26,
+    job: 'teacher',
+    presentation: function(style, timeOfDay){
+        if (style === 'formal'){
+            console.log('Good' + timeOfDay + ', Ladies and gentlemen! I\'m' + this.name + ', I\m a' + this.job + 'and I\'m ' + this.age + 'years old.');
+        }else if(style === 'friendly'){
+             console.log('Hey what\'s up? I\'m ' + this.name + ', I\m a' + this.job + 'and I\'m ' + this.age + 'years old. Have a nice ' + timeOfDay + '.');
+        }    
+    }
+};
+
+var emily = {
+    name: 'Emily',
+    age: 35,
+    job: 'designer'
+};
+
+
+john.presentation('formal','morning');
+
+
+//this is called method borrowing 
+// because we actually borrowed the method from John to use it here on the Emily object 
+// So again the call method allows us to set the this variable here in the first argument 
+// and we set it to "emily" because we wanted to use John's presentation method 
+// but setting the this variable to "emily"
+
+// apply methods accepts the arguments as an array 
+john.presentation.call(emily,'friendly','afternoon');
+
+//john.presentation.apply(emily,['friendly','afternoon']);
+
+// bind does not immediately generate the function but instead it generates a copy of the function
+
+//Bind 
+
+var johnFriendly = john.presentation.bind(john, 'friendly');
+
+johnFriendly('morning');
+johnFriendly('night');
+
+var emilyFormal = john.presentation.bind(emily,'formal');
+emilyFormal('afternoon');
+///////////////////////////////////////////////////////////////////////////////
+
+
+var years = [1990, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn){
+    var arrRes = [];
+    for(var i = 0; i< arr.length; i++){
+        arrRes.push(fn(arr[i]));
+    }
+    return arrRes;
+}
+
+function calculateAge(el){
+    return 2020 - el;
+}
+
+function isFullAge(limit, el){
+    return el >= limit;
+}
+
+var ages = arrayCalc(years, calculateAge);
+
+var fullJapan = arrayCalc(ages,isFullAge.bind(this, 20));
+console.log(ages);
+console.log(fullJapan);
+
+
+
+
+
+
+
+
+
 
 
 
