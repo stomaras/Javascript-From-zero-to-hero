@@ -1,12 +1,73 @@
 // BUDGET CONTROLLER
 
 // We are going to create an object which will keeps the type description and value 
-// in the UIController so that if i decide to change the UI the changes be locally 
-var budgetController = (function(){
+// in the UIController so that if i decide to change the UI the changes be locally
+// we need a data model for expenses and incomes here 
+// For each new item we have a description and a value and also we should have some way to distinguish // between different incomes or expensesso we want to have a unique ID number as well 
 
-    // Some code
+var budgetController = (function(){
+    
+    var Expense = function(id, description, value){
+        this.id = id;
+        this.description = description;
+        this.value = value;
+    };
+    
+    var Income = function(id, description, value){
+        this.id = id;
+        this.description = description;
+        this.value = value;
+    };
+    
+    
+    var data = {
+        allItems: {
+            exp: [],
+            inc: []
+        },
+        totals: {
+            exp: 0,
+            inc: 0
+        }
+    };
+    
+    
+    return {
+        addItem: function(type, des, val){
+            var newItem, ID;
+            
+            
+            // ID = last ID + 1
+            //Create a new ID 
+            if(data.allItems[type].length > 0) {
+                ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+            }else{
+                ID = 0;
+            }
+            
+            // Create a new Item based on 'inc' or 'exp' type 
+            if(type === 'exp'){
+                newItem = new Expense(ID, des, val);
+            }else if(type === 'inc'){
+                newItem = new Income(ID, des, val);
+            }
+            
+            // Push it into our data structure 
+            data.allItems[type].push(newItem);
+            
+            // Return the new Element 
+            return newItem;
+            
+        },
+        
+        testing: function(){
+            console.log(data);
+        }
+    };
+    
     
 })();
+
 
 // We are going to select add__type, add_description, add__value and return the type 
 // UI CONTROLLER 
@@ -59,11 +120,12 @@ var controller = (function(budgetCtrl, UICtrl) {
     
     
     var ctrlAddItem = function() {
+        var input, newItem;
         // 1. Get the field input data
-        var input = UICtrl.getinput();
-        console.log(input);
+        input = UICtrl.getinput();
         
         // 2. Add the item to the budget Controller
+        newItem = budgetCtrl.addItem(input.type, input.description, input.value);
         
         // 3. Add the item to the UI 
         
@@ -97,3 +159,5 @@ var controller = (function(budgetCtrl, UICtrl) {
 // Without this line of code nothing will happen because without EventListeners we cannot get data
 // and without data there is not application.
 controller.init();
+
+
