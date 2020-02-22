@@ -1,10 +1,5 @@
 // BUDGET CONTROLLER
 
-// We are going to create an object which will keeps the type description and value 
-// in the UIController so that if i decide to change the UI the changes be locally
-// we need a data model for expenses and incomes here 
-// For each new item we have a description and a value and also we should have some way to distinguish // between different incomes or expensesso we want to have a unique ID number as well 
-
 var budgetController = (function(){
     
     var Expense = function(id, description, value){
@@ -68,8 +63,6 @@ var budgetController = (function(){
     
 })();
 
-
-// We are going to select add__type, add_description, add__value and return the type 
 // UI CONTROLLER 
 var UIController = (function(){
     
@@ -78,7 +71,9 @@ var UIController = (function(){
         inputType: '.add__type',
         inputDescription: '.add__description',
         inputValue: '.add__value',
-        inputBtn: '.add__btn'
+        inputBtn: '.add__btn',
+        incomeContainer:'.income__list',
+        expensesContainer:'.expenses__list'
     };
     
     
@@ -89,6 +84,30 @@ var UIController = (function(){
                 description: document.querySelector(DOMstrings.inputDescription).value,
                 value: document.querySelector(DOMstrings.inputValue).value
             };
+        },
+        
+        addListItem: function(obj, type) {
+            var html, newHtml, element;
+            // Create HTML string with placeholder text
+            
+            if( type === 'inc'){
+               element = DOMstrings.incomeContainer;    
+               html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'; 
+            }else if(type === 'exp'){
+                element = DOMstrings.expensesContainer;
+                html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+            }
+            
+            // Replace the placeholder text with some actual data
+            newHtml = html.replace('%id%', obj.id);
+            newHtml = newHtml.replace('%description%', obj.description);
+            newHtml = newHtml.replace('%value%', obj.value);
+            
+            // Insert the HTML into the DOM 
+            // NOTE !!!
+            // This beforeend keyword here  makes it so that all of our HTML will be inserted
+            // as a child of these containers: income__list, expenses__list
+            document.querySelector(element).insertAdjacentHTML('beforeend', newHtml)
         },
             
         getDOMstrings: function() {
@@ -128,7 +147,7 @@ var controller = (function(budgetCtrl, UICtrl) {
         newItem = budgetCtrl.addItem(input.type, input.description, input.value);
         
         // 3. Add the item to the UI 
-        
+        UICtrl.addListItem(newItem, input.type);
         // 4. Calculate the budget 
         
         // 5. Display the budget on the UI 
@@ -136,16 +155,6 @@ var controller = (function(budgetCtrl, UICtrl) {
         console.log('It works.');
         
     }
-    
-    // I will set up the Event Listener for the input button right here in our controller
-    // .add__btn becaue is class 
-    // Not only the key Event but also the keypress event     
-    // The keypress event does not happen on any specific element but it happens on the global 
-    // web page , anywhere in the document 
-    // Keyboard Event is a user interface event in the prototype chain 
-    // the keyCode identifies the key that we pressed. We can see it in the console
-    // Some older browsers use the which
-    
     return {
         init: function(){
             console.log('Application has started.');
@@ -156,8 +165,7 @@ var controller = (function(budgetCtrl, UICtrl) {
     
 })(budgetController,UIController);
 
-// Without this line of code nothing will happen because without EventListeners we cannot get data
-// and without data there is not application.
 controller.init();
+
 
 
