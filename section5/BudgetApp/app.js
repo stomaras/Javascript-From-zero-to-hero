@@ -65,6 +65,33 @@ var budgetController = (function(){
             
         },
         
+        deleteItem: function(type, id){
+            var ids, index;
+            // id = 6 
+            // data.allItems[type][id];
+            // The above will work if we set that the IDs are all in order like zero, one, two , three
+            // imagine that these are the ids ==  [1 2 4 6 8]
+            // element number three we dont delete element with id 3 
+            // the reason that isn't all in order is that we have delete items
+            // index = 3
+            // Solution is create an array with all id numbers 
+            
+            ids = data.allItems[type].map(function(current) {
+                return current.id;    
+            });
+            
+            // indexOf method return the index number of the element of the array that we input here 
+            // index will be -1 if the index not found in the array in which we are searching 
+            
+            index = ids.indexOf(id);
+            
+            if(index !== -1){
+                data.allItems[type].splice(index, 1);
+            }
+            
+        },
+        
+        
         calculateBudget: function(){
           
             // calculate total income and expenses
@@ -262,7 +289,7 @@ var controller = (function(budgetCtrl, UICtrl) {
         var itemID, splitID, type, ID;
         
         // We traverse the DOM to the element that we interested in and then we retrieve the ID from it
-        itemid = event.target.parentNode.parentNode.parentNode.parentNode.id;
+        itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
         
         if (itemID){
             
@@ -272,9 +299,10 @@ var controller = (function(budgetCtrl, UICtrl) {
             // around the string and converts it to object so . . .
             splitID = itemID.split('-'); 
             type = splitID[0];
-            ID = splitID[1];
+            ID = parseInt(splitID[1]);
             
             // 1. Delete the item from the data structure 
+            budgetCtrl.deleteItem(type, ID);
             
             // 2. Delete the item from the user interface
             
@@ -302,29 +330,6 @@ var controller = (function(budgetCtrl, UICtrl) {
 })(budgetController,UIController);
 
 controller.init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
