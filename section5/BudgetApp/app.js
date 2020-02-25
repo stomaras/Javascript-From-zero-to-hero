@@ -117,8 +117,9 @@ var UIController = (function(){
         budgetLabel: '.budget__value',
         incomeLabel: '.budget__income--value',
         expensesLabel: '.budget__expenses--value',
-        percentageLabel: '.budget__expenses--percentage'
-    
+        percentageLabel: '.budget__expenses--percentage',
+        container: '.container'
+        
     };
     
     
@@ -137,10 +138,12 @@ var UIController = (function(){
             
             if( type === 'inc'){
                element = DOMstrings.incomeContainer;    
-               html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'; 
+               html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'; 
             }else if(type === 'exp'){
                 element = DOMstrings.expensesContainer;
-                html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                // we will use thw exp-%id% we will tell to budgetController which item should delete 
+                // when we hi the button and from the UI
+                html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             }
             
             // Replace the placeholder text with some actual data
@@ -207,7 +210,15 @@ var controller = (function(budgetCtrl, UICtrl) {
             if(event.keyCode === 13 || event.which === 13){
                 ctrlAddItem();
             }
-        });   
+        });
+        
+        // We add an EventListener here to the container which is the first element that all of 
+        // the income and expense items have in common and we did it so because we want to do 
+        // event delegation which means that instead of adding one EventListener to all of the elements
+        // that we are interested in  like all the incomes and all the expense items 
+        // we add them to the container, and then let the event bubbling up 
+        // So the function that we then attached to the container is the ctrlDeleteItem
+        document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
 
     };
     
@@ -246,6 +257,34 @@ var controller = (function(budgetCtrl, UICtrl) {
         }
     
     };
+    
+    var ctrlDeleteItem = function(event){
+        var itemID, splitID, type, ID;
+        
+        // We traverse the DOM to the element that we interested in and then we retrieve the ID from it
+        itemid = event.target.parentNode.parentNode.parentNode.parentNode.id;
+        
+        if (itemID){
+            
+            //inc-1
+            // all strings have access to the method split
+            // as we call one method to the string the js automatically put a wrapper 
+            // around the string and converts it to object so . . .
+            splitID = itemID.split('-'); 
+            type = splitID[0];
+            ID = splitID[1];
+            
+            // 1. Delete the item from the data structure 
+            
+            // 2. Delete the item from the user interface
+            
+            // 3. Update and show the new budget 
+            
+            
+            
+        }
+    };
+    
     return {
         init: function(){
             console.log('Application has started.');
@@ -263,6 +302,31 @@ var controller = (function(budgetCtrl, UICtrl) {
 })(budgetController,UIController);
 
 controller.init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // EVENT BUBBLING : 
