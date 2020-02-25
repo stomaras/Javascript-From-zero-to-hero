@@ -264,3 +264,20 @@ var controller = (function(budgetCtrl, UICtrl) {
 
 controller.init();
 
+
+// EVENT BUBBLING : 
+// the element that the event was actually first fired is called the target element 
+// the important part is that this target element is stored as a property in the event object
+// this means that all the parent elements on which the event will also fire will know the target 
+// element of the event so where the event was first fired  and that bribg us to event delegation 
+// because if the event bubbles up in the DOM tree we can attach an event handler to the parent element
+// and wait for the event to bubble up and do whatever we are intended to do with our target element 
+// this techniqui is called event delegation
+
+// Use cases of EVENT DELEGATION :
+// 1.) When we have an element with lots of child elements that we are interested in 
+// 2.) When we want an event handler attached to an element that is not yet in the DOM when our page is loaded
+
+// may be a lot of items , so it wouldn't be useful to have one event handler attached to each of them 
+// and That's why we are gonna use event delegation 
+
