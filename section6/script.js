@@ -54,3 +54,34 @@ for (let i=0; i < 5; i++){
 }
 
 console.log(i);
+
+
+// let and const are block-scoped 
+// var are function-scoped
+ 
+
+////////////////////////////////////////////////
+// Lecture: Blocks and IIFEs
+
+
+
+// ES6
+{
+    const a = 1;
+    let b = 2;
+    var c = 3;
+}
+
+// False: const and let are block-scoped
+//console.log(a + b);
+
+console.log(c);
+
+// ES5 
+(function() {
+    var c = 3;
+})();
+
+// False: var is function-scoped
+//console.log(c);
+
