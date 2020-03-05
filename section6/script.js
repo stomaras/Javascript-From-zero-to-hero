@@ -85,3 +85,32 @@ console.log(c);
 // False: var is function-scoped
 //console.log(c);
 
+
+////////////////////////////////////////////////
+// Lecture: Strings 
+
+let firstName = 'Spyros';
+let lastName = 'Tomaras';
+const yearOfBirth = 1990;
+
+function calcAge(year){
+    return 2020 - year;
+}
+
+//ES5 
+console.log('This is ' + firstName + ' ' + lastName + '. He was born in ' + yearOfBirth + '. Today, he is ' + calcAge(yearOfBirth) + ' years old. ');      
+
+//ES6
+console.log(`This is ${firstName}${lastName}. He was born in ${yearOfBirth}. Today he is 
+${calcAge(yearOfBirth)} years old.`);
+
+
+
+const fullName = `${firstName} ${lastName}`;
+console.log(fullName.startsWith('S'));
+console.log(fullName.endsWith('s'));
+console.log(fullName.includes(' '));
+console.log(firstName.repeat(3));
+console.log(`${firstName}`.repeat(5));
+
+
