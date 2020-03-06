@@ -209,3 +209,32 @@ function calcAgeRetirement(year){
 const [age2, retirement] = calcAgeRetirement(1990);
 console.log(age2);
 console.log(retirement);
+
+
+///////////////////////////////////
+// Lecture: Arrays 
+ 
+const boxes = document.querySelectorAll('.box');
+
+// ES6 
+const boxesArr6 = Array.from(boxes);
+boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerblue');
+
+// ES6 
+for (const cur of boxesArr6){
+    if(cur.className.includes('blue')){
+        continue;
+    }
+    cur.textContent = 'I changed to blue';
+}
+
+
+//ES6
+var ages = [12, 17, 8, 21, 14, 11];
+console.log(ages.findIndex(current => current >= 18));
+console.log(ages.find(current => current >= 18));
+
+
+
+
+
