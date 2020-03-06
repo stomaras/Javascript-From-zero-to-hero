@@ -257,7 +257,15 @@ console.log(bigFamily);
 
 
 
+
 const h = document.querySelector('h1');
+console.log(h);
+const boxes = document.querySelectorAll('.box');
+console.log(boxes);
+const all = [h,...boxes];
+console.log(all);
+
+Array.from(all).forEach(cur => cur.style.color = 'purple');const h = document.querySelector('h1');
 const boxes = document.querySelectorAll('.box');
 const all = [h,...boxes];
 
