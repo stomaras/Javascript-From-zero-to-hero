@@ -271,6 +271,32 @@ const all = [h,...boxes];
 
 Array.from(all).forEach(cur => cur.style.color = 'purple');
 
+///////////////////////////////////
+// Lecture: Rest Parameters
+
+//ES6 
+function isFullAge6(...years) {
+    years.forEach(cur => console.log(2016 - cur) >= 18);
+}
+
+isFullAge6(1990, 1999, 1965);
+
+// So the big difference between spread operator and the rest parameters is actually the place in which we use each of them 
+// So the spread operator is used in the function call while the rest operator is used in the function declaration 
+
+
+
+//ES6 
+function isFullAge6(limit,...years) {
+    years.forEach(cur => console.log((2020 - cur) >= limit));
+}
+
+isFullAge6(21,1990, 1999, 1965, 2000, 2001, 1997);
+
+// So the big difference between spread operator and the rest parameters is actually the place in which we use each of them 
+// So the spread operator is used in the function call while the rest operator is used in the function declaration 
+
+
 
 
 
