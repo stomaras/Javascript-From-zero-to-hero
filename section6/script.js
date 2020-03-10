@@ -382,6 +382,25 @@ const john = new Person('John',1997,'teacher');
 
 Person.greeting();
 
+class Athlete extends Person {
+    constructor(name, yearOfBirth, job, olymicGames, medals){
+        super(name, yearOfBirth, job);
+        this.olymicGames = olymicGames;
+        this.medals = medals;
+    }
+
+    wonMedal(){
+        this.medals++;
+        console.log(this.medals);
+    }
+}
+
+const tomAthlete = new Athlete('Spyrus',1997,'Footballer',3,10);
+
+tomAthlete.wonMedal();
+tomAthlete.calculateAge();
+
+
 
 
 
