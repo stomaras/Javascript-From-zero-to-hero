@@ -352,5 +352,37 @@ const ans = parseInt(prompt('Write the correct answer'));
 console.log(question.get(ans === question.get('correct')));
 
 
+///////////////////////////////////
+// Classes 
+
+//ES6
+
+class Person {
+
+    constructor (name, yearOfBirth, job){
+        this.name = name;
+        this.yearOfBirth = yearOfBirth;
+        this.job = job;
+    }
+
+    calculateAge(){
+        var age = new Date().getFullYear - this.yearOfBirth;
+        console.log(age);
+    }
+
+
+    static greeting(){
+        console.log('Hey there!');
+    }
+
+
+}
+
+const john = new Person('John',1997,'teacher');
+
+Person.greeting();
+
+
+
 
 
