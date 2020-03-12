@@ -1,21 +1,114 @@
-<!--
-    asynchronous javascript is basically just a fancy term 
-// for some code that keeps running in the background while our main code is still executing 
-// And typically that is for stuff like requesting some data
-// from a remote server, like an API 
+<!--Comment - 1
+      asynchronous javascript is basically just a fancy term 
+      for some code that keeps running in the background while our main code is still executing 
+      And typically that is for stuff like requesting some data
+      from a remote server, like an API 
 --> 
 
-<!--
+<!--Comment - 2
     synchronous javascript, I mean that all the instructions 
     are executed one after the other, line by line.
 -->
 
-<!--
+<!--Comment - 3
     In order to add some asynchronous code here we are going to use the setTimeout function,
     which is basically to set a timer in JavaScript.
     And that will then allow us to write code, that should be executed later, okay?
     So that is asynchronous JavaScript 
 
+-->
+
+<!--Comment - 4
+    Synchronous Code: which simply means that one statement is processed after the code, line by line 
+    in a Sigle thread in the JavaScript Engine 
+
+    Synchronous JavaScript Code:
+        const second = () => {
+            console.log('How are you doing?');
+        };
+
+        const first = () => {
+            console.log('Hey there');
+            second();
+            console.log('The end');
+        };
+        first();
+
+    Asynchronous JavaScript Code:
+        const second = () => {
+            setTimeout(() => {
+                console.log('Asynch Hey There!');
+            }, 2000);
+        };
+
+        const first = () => {
+            console.log('Hey There!');
+            second();
+            console.log('The end');
+        };
+
+        Why the code move on instead of waiting for the timer to finish?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Suppose we select an image from our DOM and pass it into a Process Large Image function that we created 
+        
+
+        const image = document.getElementById('img').src;
+
+        processLargeImage(image, () => {
+            console.log('Image processed!');
+        })
+
+        We know that this function is gonna take some time to process the image.
+        And just like before we don't want the code to have to wait.
+        So we don't want it to stop while the image is processing,
+        because that would be terrible in some situations.
+        What we do here is to also pass in a Callback function, that we want to be called 
+        as soon as the function is done processing 
+        And just like that we have created Asynchronous code
+
+        - Allow asynchronous functions to run in the "background";
+
+        - We pass in callbacks that run once the function has finished its work;
+
+        - Move on <immediatly:Non-blocking!
+
+        setTimeout() function it's part of something called the Web APIs
+        Web APIs : actually live outside the JavaScript Engine itself 
+        Stuff like DOM Manipulations methods, HTTP requests for AJAX , geolocation, local storage and tons of other things,
+        actually live outside of the JavaScript Engine. We have access to them because they are also in the JS Runtime
+
+        Our callback function is attached to the timer until the timer finish so in the Web APIs and no to the
+        Execution Stack. After timer finish our callback function goes to message queue where it waits to be executed 
+        as soon as the execution stack is empty . This is exactly what happens with DOM Events as well and that's 
+        because it actually works the exact same way... In the case of DOM Events our event listeners sit in the Web APIs environment
+        waiting for a certain event to happenand as soon as that event then happens, the the callback function is placed on a Message Queue
+        ready to be executed 
+
+        How the callback functions in the Message Queue executed? 
+
+        And that's where, finally, the Event Loop comes in 
+
+            The job of the Event Loop is to constantly monitor the Message Queue and the Execution Stack 
+            and push the first callback function in line on to the Execution Stack, as soon as the stack is empty
+        
+        After the execution of the content of the callback , the callback function pops off from the stack
+        ... Now if there were some callbacks waiting right now, like data coming back from an AJAX request or the handler of a DOM Event
+        then the event loop will continue pushing them on to the stack until all of them were processed 
 -->
 
 <!DOCTYPE html>
