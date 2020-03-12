@@ -1,0 +1,51 @@
+<!--
+    asynchronous javascript is basically just a fancy term 
+// for some code that keeps running in the background while our main code is still executing 
+// And typically that is for stuff like requesting some data
+// from a remote server, like an API 
+--> 
+
+<!--
+    synchronous javascript, I mean that all the instructions 
+    are executed one after the other, line by line.
+-->
+
+<!--
+    In order to add some asynchronous code here we are going to use the setTimeout function,
+    which is basically to set a timer in JavaScript.
+    And that will then allow us to write code, that should be executed later, okay?
+    So that is asynchronous JavaScript 
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asynchronous JavaScript</title>
+</head>
+<body>
+    <h1>Asynchronous JavaScript</h1>
+    <script>
+        // After two second the function second will execute the callback() function and will print Asynch Hey There
+        const second = () => {
+            setTimeout(() => {
+                console.log('Asynch Hey There');
+            }, 2000);
+        }
+
+
+        const first = () => {
+            console.log('Hey there');
+            second();
+            console.log('The end');
+        }
+
+        first();
+        // in the next part of code i will show exactly how asynchronous JavaScript works behind the scenes with the event loop and the web APIs
+        // and some other parts of the JavaScript Engine 
+    </script>
+</body>
+</html>
