@@ -1,0 +1,305 @@
+<!--Comment - 1
+      asynchronous javascript is basically just a fancy term 
+      for some code that keeps running in the background while our main code is still executing 
+      And typically that is for stuff like requesting some data
+      from a remote server, like an API 
+--> 
+
+<!--Comment - 2
+    synchronous javascript, I mean that all the instructions 
+    are executed one after the other, line by line.
+-->
+
+<!--Comment - 3
+    In order to add some asynchronous code here we are going to use the setTimeout function,
+    which is basically to set a timer in JavaScript.
+    And that will then allow us to write code, that should be executed later, okay?
+    So that is asynchronous JavaScript 
+
+-->
+
+<!--Comment - 4
+    Synchronous Code: which simply means that one statement is processed after the code, line by line 
+    in a Sigle thread in the JavaScript Engine 
+
+    Synchronous JavaScript Code:
+        const second = () => {
+            console.log('How are you doing?');
+        };
+
+        const first = () => {
+            console.log('Hey there');
+            second();
+            console.log('The end');
+        };
+        first();
+
+    Asynchronous JavaScript Code:
+        const second = () => {
+            setTimeout(() => {
+                console.log('Asynch Hey There!');
+            }, 2000);
+        };
+
+        const first = () => {
+            console.log('Hey There!');
+            second();
+            console.log('The end');
+        };
+
+        Why the code move on instead of waiting for the timer to finish?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Suppose we select an image from our DOM and pass it into a Process Large Image function that we created 
+        
+
+        const image = document.getElementById('img').src;
+
+        processLargeImage(image, () => {
+            console.log('Image processed!');
+        })
+
+        We know that this function is gonna take some time to process the image.
+        And just like before we don't want the code to have to wait.
+        So we don't want it to stop while the image is processing,
+        because that would be terrible in some situations.
+        What we do here is to also pass in a Callback function, that we want to be called 
+        as soon as the function is done processing 
+        And just like that we have created Asynchronous code
+
+        - Allow asynchronous functions to run in the "background";
+
+        - We pass in callbacks that run once the function has finished its work;
+
+        - Move on <immediatly:Non-blocking!
+
+        setTimeout() function it's part of something called the Web APIs
+        Web APIs : actually live outside the JavaScript Engine itself 
+        Stuff like DOM Manipulations methods, HTTP requests for AJAX , geolocation, local storage and tons of other things,
+        actually live outside of the JavaScript Engine. We have access to them because they are also in the JS Runtime
+
+        Our callback function is attached to the timer until the timer finish so in the Web APIs and no to the
+        Execution Stack. After timer finish our callback function goes to message queue where it waits to be executed 
+        as soon as the execution stack is empty . This is exactly what happens with DOM Events as well and that's 
+        because it actually works the exact same way... In the case of DOM Events our event listeners sit in the Web APIs environment
+        waiting for a certain event to happenand as soon as that event then happens, the the callback function is placed on a Message Queue
+        ready to be executed 
+
+        How the callback functions in the Message Queue executed? 
+
+        And that's where, finally, the Event Loop comes in 
+
+            The job of the Event Loop is to constantly monitor the Message Queue and the Execution Stack 
+            and push the first callback function in line on to the Execution Stack, as soon as the stack is empty
+        
+        After the execution of the content of the callback , the callback function pops off from the stack
+        ... Now if there were some callbacks waiting right now, like data coming back from an AJAX request or the handler of a DOM Event
+        then the event loop will continue pushing them on to the stack until all of them were processed 
+
+
+
+
+
+        
+
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asynchronous JavaScript</title>
+</head>
+<body>
+    <h1>Asynchronous JavaScript</h1>
+    <script>
+        
+        // After two second the function second will execute the callback() function and will print Asynch Hey There
+        //const second = () => {
+          //  setTimeout(() => {
+            //    console.log('Asynch Hey There');
+            //}, 2000);
+        //}
+
+
+        //const first = () => {
+          //  console.log('Hey there');
+            //second();
+            //console.log('The end');
+        //}
+
+        //first();
+        // in the next code i will show exactly how asynchronous JavaScript works behind the scenes with the event loop and the web APIs
+        // and some other parts of the JavaScript Engine 
+
+        // We are gonna build a very very small fake recipe reader. OKAY?
+        // And here, we're gonna simulate ajax calls to get some fake recipes using set timeouts 
+        // So basically, we're gonna simulate loading a data from a remote web server which of course would be asynchronous,
+        // using some timers 
+
+        // Now the way this is gonna work is that we simpulate first that we get a bunch of recipe IDs from a server 
+        // and then based on that, we select a recipe and then get the recipe from a server after that 
+        // So first, we get a couple of IDs, and then we get a recipe
+        // So we are gonna use the setTimeout() function as i mentioned before,basically to simulate the ajax call 
+        // so the call to get the data from the server.
+        // let's simply create an array of recipe IDs and then some numbers, it doesn't really matter here
+        // And again the set timeout here is just to simulate that this data here comes back from a server 
+        // Now once the data comes back from the server, we then want to get the recipe for one of these IDs.
+        // then we set a new timeout where then the data comes from the server for the recipe 
+        // In future we will use a real API and a real AJAX call, but for now we use the set timeouts to simulate that behaviour
+
+
+        // Callback hell in JavaScript : we have callback inside of callback inside of callback ... e.t.c.....
+        // After sometime this situation is unmanageable 
+        // Something called "promises" were introduced and with promises we can avoid all of these call back hell here
+        // and have a nicer and cleaner syntax when using asynchronous JavaScript 
+        //function getRecipe() {
+        //    setTimeout(() => {
+        //        const recipeID = [523, 883, 432, 974];
+        //        console.log(recipeID);
+
+        //        setTimeout((id) => {
+        //            const recipe = {title: 'Fresh tomato', publisher: 'Tom'};
+        //            console.log(`${id}: ${recipe.title}`);
+
+        //              setTimeout(publisher => {
+        //                const recipe2 = {title: 'Italian Pizza', publisher: 'Jonas'};
+        //                console.log(recipe2);
+        //            }, 1500, recipe.publisher);
+
+        //        }, 1500, recipeID[2]);
+
+        //    }, 1500);
+
+        //}
+
+        //getRecipe();
+        // In this first Promise here we get these four ids from the Server with this fake ajax call here, okay? 
+        // this callback function that we passed into the promise, remember that this one here is called the executor function 
+        // and this function here itself actually takes in two arguments which are the call back function's resolve and reject 
+        // and that's because this executor function here is used to inform the promise whether the event it is handling was 
+        // successful or not. And if it was successful we're gonna call the resolve function and if not we call the reject function 
+        // So remember that we had these two states here resolve if the promise was successful and reject if the promise was not 
+        // successful. So if you don't have any result and in that case we can call the reject function and i'm gonna show you how we use 
+        // these functions  here inside our promise in a second.
+        // But for now let's put some asynchronous task here in the executor function because that is usually what happens in a promise
+        // So something like an ajax call or in this case a set time out function. So again to fake the ajax call so basically the call
+        // to a server to get some data, okay? 
+        // Calling the resolve function will basically mark the promise as fulfilled, so as successful, right? 
+        // After this timer finishes after one and a half second, we say that the promise is successful and that we want 
+        // to return this data here and that's why we used the resolve function and since set time out is impossible to fail, so, this 
+        // timer will always finish. There's no way it is not going to finish and so we don't need to call the reject function 
+        // in this case, but we would need it in some other cases, but we would need it in some other cases, like when we were 
+        // dealing with data coming back from a server where there can happen all kinds of errors. But in this case we don't need to call
+        // the reject function ever. All we do here is to call the resolve function which marks the promise as fulfilled
+        // and returns this data here. All right, and so we produced our very first very simple promise here which is stored now in this
+        // get IDs variable.Okay and it's now time that actually we consume this promise, and in order to do that we can use 2 methods 
+        // on all of the promise objects and these methods are the then and the catch methods, okay? So all of the promise objects here
+        // inherit these two methods 
+
+        const getIDs = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                //reject([523, 883, 432, 974]);// using the reject promise here we marked this promise as rejected and so therefore js 
+                //assumes that there was an error and so this part here .catch gets called 
+                resolve([523, 883, 456, 974]);
+            }, 1500);
+        });
+        // So in this getRecipe function we pass the recID, which after we pass it into setTimeout function and after 
+        // inside the callback function we use the ID in the resolve 
+        // Now how we actually consumes this promise here? 
+        const getRecipe = recID => {
+            return new Promise((resolve, reject) => {
+                setTimeout(ID => {
+                    const recipe = {title: 'Fresh tomato pasta', publisher: 'Jonas'};
+                    resolve(`${ID}: ${recipe.title}`);// when the promise if fullfiled is that it will basically return this data here
+                }, 1500, recID);
+            });
+        }
+
+        const getRelated = publisher => {
+            return new Promise((resolve, reject) => {
+                setTimeout(pub => {
+                    const recipe = {title: 'Italian Pizza',publisher: 'Jonas'};
+                    resolve(`${pub}: ${recipe.title}`);
+                }, 1500, publisher);
+            });
+        }
+
+
+
+        // this then method allow us to add an event handler for the case that the promise is fufilled
+        // all that we have to do here is to pass a callback funciton which will handle what we do in case the promise
+        // was successful which will actually always be the case 
+        // then method : which allows us to add a handler for the case that a promise gets accepted 
+        // catch method : which allows us to add a handler for the case that a promise gets rejected
+        // when we use the reject function we assume that promise is rejected and so terefore JavaScript assumes 
+        // that there was an error and so this part here catch gets called 
+        //getIDs
+        //.then(IDs => {
+        //    console.log(IDs);
+        //    return getRecipe(IDs[2]);// this will return a promise 
+        //})
+        //.then(recipe => {// we handle the result of that resolved promise okay?
+        //    console.log(recipe);
+        //    return getRelated('Jonas');// return a new promise 
+        //})
+        //.then(recipe => {
+        //    console.log(recipe);
+        //})
+        //.catch(error => {
+        //    console.log('Error!!');
+        //});
+
+        // In order to consume promises better in ES8, or ES2017, something called Async/Await was introduced to the JavaScript 
+        // Language in order to make it a lot easier for us developers to consume promises 
+        // So, now let's take a look at Async/Await. So again Async/Await was designed for us to consume promises, and not to 
+        // produce them. So if you want to produce promises, we just do it the way that we learned in the last lecture 
+        // Async/Await makes that a lot easier to do. 
+
+        // We will do the same thing with the Async/Await 
+        // Alright so, this is a new special kind of function which simply means that this function is an Asynchronous function.
+        // So, one that basically keeps running in the background.
+        // This Async function then returns a promise
+        // IMPORTANT !!! 
+        // Inside an Async Function we can have one or more Await expressions
+        // So in order to consume our first promise, we do it like this ...
+        // async function run on the background asynchronously and always return a promise  
+        async function getRecipesAW(){
+            const IDs = await getIDs;// if the promise is resolved which remember, means that it was successful, then the value of the Await expression is the resolved value of the promise
+            console.log(IDs);
+            const recipe = await getRecipe(IDs[2]);
+            console.log(recipe);
+            const related = await getRelated('Jonas');
+            console.log(related);
+
+            return recipe;
+        }
+        // getRecipesAW() automatically returns a promise with the resolved value of recipe 
+        // Runs synchronously 
+        //const rec = getRecipesAW();
+        //console.log(rec);// this is a promise but we don't have any result yet and so we cannot log anything to the console 
+
+        getRecipesAW().then(result => console.log(`${result} is the best ever!`));
+
+
+    </script>
+</body>
+</html>
