@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asynchronous JavaScript</title>
+</head>
+<body>
+    <h1>Asynchronous JavaScript</h1>
+    <script>
+// In this first Promise here we get these four ids from the Server with this fake ajax call here, okay? 
+        // this callback function that we passed into the promise, remember that this one here is called the executor function 
+        // and this function here itself actually takes in two arguments which are the call back function's resolve and reject 
+        // and that's because this executor function here is used to inform the promise whether the event it is handling was 
+        // successful or not. And if it was successful we're gonna call the resolve function and if not we call the reject function 
+        // So remember that we had these two states here resolve if the promise was successful and reject if the promise was not 
+        // successful. So if you don't have any result and in that case we can call the reject function and i'm gonna show you how we use 
+        // these functions  here inside our promise in a second.
+        // But for now let's put some asynchronous task here in the executor function because that is usually what happens in a promise
+        // So something like an ajax call or in this case a set time out function. So again to fake the ajax call so basically the call
+        // to a server to get some data, okay? 
+        // Calling the resolve function will basically mark the promise as fulfilled, so as successful, right? 
+        // After this timer finishes after one and a half second, we say that the promise is successful and that we want 
+        // to return this data here and that's why we used the resolve function and since set time out is impossible to fail, so, this 
+        // timer will always finish. There's no way it is not going to finish and so we don't need to call the reject function 
+        // in this case, but we would need it in some other cases, but we would need it in some other cases, like when we were 
+        // dealing with data coming back from a server where there can happen all kinds of errors. But in this case we don't need to call
+        // the reject function ever. All we do here is to call the resolve function which marks the promise as fulfilled
+        // and returns this data here. All right, and so we produced our very first very simple promise here which is stored now in this
+        // get IDs variable.Okay and it's now time that actually we consume this promise, and in order to do that we can use 2 methods 
+        // on all of the promise objects and these methods are the then and the catch methods, okay? So all of the promise objects here
+        // inherit these two methods 
+
+        const getIDs = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                //reject([523, 883, 432, 974]);// using the reject promise here we marked this promise as rejected and so therefore js 
+                //assumes that there was an error and so this part here .catch gets called 
+                resolve([523, 883, 456, 974]);
+            }, 1500);
+        });
+        // So in this getRecipe function we pass the recID, which after we pass it into setTimeout function and after 
+        // inside the callback function we use the ID in the resolve 
+        // Now how we actually consumes this promise here? 
+        const getRecipe = recID => {
+            return new Promise((resolve, reject) => {
+                setTimeout(ID => {
+                    const recipe = {title: 'Fresh tomato pasta', publisher: 'Jonas'};
+                    resolve(`${ID}: ${recipe.title}`);
+                }, 1500, recID);
+            });
+        }
+
+        const getRelated = publisher => {
+            return new Promise((resolve, reject) => {
+                setTimeout(pub => {
+                    const recipe = {title: 'Italian Pizza',publisher: 'Jonas'};
+                    resolve(`${pub}: ${recipe.title}`);
+                }, 1500, publisher);
+            });
+        }
+
+
+
+        // this then method allow us to add an event handler for the case that the promise is fufilled
+        // all that we have to do here is to pass a callback funciton which will handle what we do in case the promise
+        // was successful which will actually always be the case 
+        getIDs
+        .then(IDs => {
+            console.log(IDs);
+            return getRecipe(IDs[2]);
+        })
+        .then(recipe => {
+            console.log(recipe);
+            return getRelated('Jonas');
+        })
+        .then(recipe => {
+            console.log(recipe);
+        })
+        .catch(error => {
+            console.log('Error!!');
+        });
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
