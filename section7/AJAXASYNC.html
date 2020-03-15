@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asynchronous JavaScript</title>
+</head>
+<body>
+    <h1>Asynchronous JavaScript</h1>
+    <!--I will make an AJAX call to reqest some weather data from a real weather API , in order to do this I am going to use a modern 
+        web API called Fetch and by web API I mean these parts that are available to us in the browser but ar not really part of the 
+        JavaScript Language itself . Anyway, with fetch we can do AJAX in a very simple way so we can do asynchronous network requests
+        across the internet to fetch data from other servers , or even from our own server. Now we used to do this in JavaScript using 
+        the rather complex XML HttpRequest Interface . It has actually better browser support than fetch because it has been around  for 
+        a long time now , but i am still going to use Fetch right now here in this lecture, which is more modern and it should work more than fine 
+        for us here. 
+    -->
+
+    <!-- I use the fetch function 
+         Now in here i need to pass the URL where the API is located , so basically the URL to which we are sending the request
+         Now we are using a weather API called MetaWeather
+         So normally APIs request a key in order to use it, but this one is a very simple one and it doens't require an API key 
+         and so that's why i chose this very simple MetaWeather API
+         So in MetaWeather API we have the documentation and we can see here that there are three methods in this API 
+         So the first one is to search for location 
+            Basically you put in the name of a city or something and it then comes back with a result which contains these fields here
+            in the response : so the title of the location, the type, the latitude and longtitude, this ID here which means Where 
+            on earth id and then this distance here
+        The second one is the location method this is basically to get the weather data 
+            from a certain woeid , so this id here which corresponds to a place on Earth . So this is the API method
+            /api/location/2124414/- San Frasisco 
+            so we have a JSON file ... which is a text-based data format which is very similr to javascript objects, but the difference is that 
+            JSON is really just a single string and not an entire object inside the JS Engine. This is like a string that we can receive from  a
+            server and then we can easily convert it to a JavaScript object. I'm going to show you how that works just in a second when we start 
+            using this API.
+            In order to get all JSON we just need to pass all the URL into the fetch.
+    -->
+
+    <!-- We do the follow STEP: fetch('https://www.metaweather.com/api/location/2487956/');
+    -->
+
+    <!--
+        We have the follow RESULT:!!!
+        Access to fetch at 'https://www.metaweather.com/api/location/2487956/' 
+        from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+        If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+    -->
+
+    <!--
+        REASON:
+                what is the above strange error: the reason for this is the so-called same origin policy in JavaScript 
+                which basically prevent us from making AJAX requests to a domain different than our own domain. So right
+                now de don't really have any domain here we are just opening the JS file. The domain that we are requesting this resource
+                from is of course the metaweather API and because of this same origin policy we cannot access this resource
+
+                Now in order to actually allow developers to make requests to different domains something called Cross Origin Resource Sharing,
+                or CORS, was developed ... The developers of the API that we are requesting from, they need to implement CORS on their server
+                That's actually the case for many APIs but unfortuanately not for MetaWeather
+
+                What developers do is to proxy or channel the request through their own server like doing the AJAX requests on our own server 
+                where the same origin policy does not exist and then send the data to the browser. But of-course we're not going to do that 
+                here because we don't have our own server in this example, and of course we want to keep it simple , but we can still use a
+                service that does exactly that for us. We are going to use a proxy called crossorigin.me. 
+                ::::::::::::::::::::::::::::::::::
+                ::::::::::::::::::::::::::::::::::
+                ::::::::::::::::::::::::::::::::::
+                A CROS proxy ::::
+                ::::::::::::::::::::::::::::::::::
+                ::::::::::::::::::::::::::::::::::
+                ::::::::::::::::::::::::::::::::::
+                is a service that allows developers to access resources from other websites, without having to own that website
+                is really easy to use what we have to do is to prefix our own request URL with this crossorigin.me
+                https://crossorigin.me/ or https://cors-anywhere.herokuapp.com
+
+    -->
+    
+    <script>
+
+            // With this we did not get an error but also we did not handle any responses or anything like that
+            // What we need to know is that the Fetch API gets our data and returns a PROMISE.
+            // This promise of course return the data we want, or an error if it could not somehow find the data that we requested 
+            // So now we can use then and catch methods on this promise just like i showed you in the last lectures 
+            // Most of the time we consume promises and not really produce them.
+            // The data that will come back from the fetch AJAX request will be called result here in this callback function  
+            // woid is a variable reffering to the location id ${woid}/
+            // body is a readable stream so we must to process this response here with JSON so that we can get the actual result 
+            // body is where the actual result is stored ... we just have to convert it from JSON to JavaScript just i like 
+            // mentioned before.
+
+            // How we do that ?
+
+            // it's actually very easy we just use the JSON method on this result and this JSON method actually returns a promise 
+            // so we need a then and catch method in order to handle this.
+            // The conversion to JSON will happen asynchronoously , because it can take some time and so therefore it happens 
+            // asynchronously in the background . As soon as is ready it then comes back with the data.
+            // We need to handle that so we add a new then method 
+            // So after this handle we have a JavaScript Object now containing the data that we are looking for 
+
+            // After all the above we do our first AJAX calls using fetch and promises
+
+            function getWeather(woeid) {
+                fetch
+                (`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
+                .then(result => {
+                    console.log(result);
+                    return result.json();
+                })
+                .then(data => {
+                    //console.log(data);
+                    const today = data.consolidated_weather[0];
+                    console.log(`Temperatures today in ${data.title} stay between ${today.min_temp} and ${today.max_temp}.`)
+                })
+                .catch(error => console.log(error));
+            
+            }
+            getWeather(2487956);
+            getWeather(44418);
+
+            // An async function always return a promise 
+            async function getWeatherAW(woeid){
+                try {
+                    const result = await fetch
+                    (`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`);
+                    const data = await result.json();
+                    const tomorrow = data.consolidated_weather[1];
+                    console.log(`Temperatures tomorrow in ${data.title} stay between ${tomorrow.min_temp} and ${tomorrow.max_temp}.`);
+                    return data;//what we return from an async function will be the result value of the Promise
+                } catch (error) {
+                    //console.log(error);
+                    alert(error);
+                }
+                
+            }   
+            getWeatherAW(2487956);
+            //const dataLondon = getWeatherAW(44418); 
+            //console.log(dataLondon);
+
+            let dataLondon;
+            getWeatherAW(44418).then(data => {
+                dataLondon = data
+                console.log(dataLondon);
+            });        
+
+
+
+
+    </script>
+</body>
+</html>
