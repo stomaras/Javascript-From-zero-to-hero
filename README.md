@@ -78,7 +78,7 @@ the this keyword points at the global object,(the window object, in the browser)
 
 - I create all my projects with help of the udemy instructor : Jonas Schmedtmann
 
-#An Overview of modern JavaScript
+# An Overview of modern JavaScript
                                                     
  - So the way that we write JavaScript has changed tremendously during the last couple of years. Today we compile ES6, and even newes
    JavaScript versions, down to ES5 we use module bundlers, task runners, external packages, and other dev tools.
