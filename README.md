@@ -113,8 +113,56 @@ the this keyword points at the global object,(the window object, in the browser)
 - WebPack and Babel is NPM packages and the easiest way to run these packages is by using something called NPM scripts
 
 - Putting it all together with an automated development setup powered by NPM Scripts 
+
+- We have two types of Node.js packages: 1) libraries and frameworks and stuff like that
+                                         2) Development tools
+                                         
+- Libraries like React and Jquery for example are really dependencies because we use this code in our product, in our app
+  
+- Something like webpack, this is really just a development tool so it save in devDependencies in the .json file
+
+- In order to install webpack : npm install webpack --save-dev
+
+- In order to install jquery: npm install jquery --save
+
+    this will save as dependencies in json file
     
+- So .json file has all of these information listing all of the packages, so all of the dependencies that we use in our project.
+  And that's very important because if you were to move this project to another computer or work with another person on the 
+  same project, then everyone's on the same page. So everyone knows which dependency we're using in our app.
+  it's also important because it allows us to install all of these dependencies here automatically 
+  
+- We can find the dependencies of jquery and webpack depedencies in node_modules.
+  Now if we went to share our entire project here with someone else we wouldn't have to share this, this huge folder here
+  node_modules which have thousands and thousands of files. We really wouldn't need to share. All we need to share is this package.json 
+  file which has this information about our dependencies.
+  
+- Uninstall packages : npm uninstall jquery --save
+
+- NOTE ! ! !
     
+    The packages that we installed here with the "--save-dev" and "--save" options, they are locally installed 
+    only for this project 
+    
+ - Note2 ! ! !
+    
+    But we can install packages globally, in order to make them accesible from everywhere on our computer.
+    In order to make webpack accesible from everywhere, we could also do that.
+    We can do that with another package which called "Live Server" which package allows us to create a very simple and local webserver
+    to serve some statics websites.
+    
+- Install live Server : npm install live-server --global
+
+- Run live Server with the follow command: live-server
+
+- DevDependencies : tools that we use for development 
+
+- Real Dependencies: code that is actually used in our app
+
+- If we build a React App we need to use the React API, and so it's going to be a real dependency.
+
+- Besides these two locally installed packages ( DevDependencies and Real Dependencies) we have the global packages 
+  which installed using the "--global" flag here in the command line or "-g".
 
 
 
