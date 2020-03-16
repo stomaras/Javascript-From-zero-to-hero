@@ -77,6 +77,42 @@ THE VARIABLE OBJECT
 the this keyword points at the global object,(the window object, in the browser)
 
 - I create all my projects with help of the udemy instructor : Jonas Schmedtmann
+
+                                                    An Overview of modern JavaScript
+                                                    
+ - So the way that we write JavaScript has changed tremendously during the last couple of years. Today we compile ES6, and even newes
+   JavaScript versions, down to ES5 we use module bundlers, task runners, external packages, and other dev tools.
+   So, up until this point , we have always coded JavaScript in the old way. But this will change at this moment by using 
+   JavaScript with the more modern, real world way.
+   
+ - Modern JavaScript is not so much about the language itself. But it's more about the whole JavaScript Ecosystem, and environment that 
+   we use to write it in.So we still write the exact same JavaScript but we use it together with a set of tools that make it easier and 
+   better to work with. And the foundation of all these tools is the Node Js ans NPM ecosystem.
+   Where we can find all kind of third party open source tools and libraries and frameworks needed for modern web development 
+   And with libraries and frameworks that means stuff like React, Angular, or libaries like Lodash, or even Jquery.
+   Then we also have development tools, like for task automations, automatic browser reloading, or to compile JavaScript down to ES5.
+   Now in order to use and share these packages, we need some kind of tool to install and to manage them. And that's where the node
+   package manager, or NPM, comes in .
+   So NPM is just a simple command line interface that allows us to do exactly that. Plus, NPM also allows us to write scripts to use 
+   our development tools, but more on that a bit later.
+   
+- So the first tool that we use in modern Javascript is Babel. In order to convert cutting edge JavaScript like ES6, ES7, or even ES8,
+  which together are simply called ESNext, back to ES5. So if all browsers are capable of understanding our code.
+  In a couple of years, this might no longer be necessary, but for now, this is an important step in our development process
+  
+- Next up we want to use ES6 modules in order to make our code more modular and therefore, easier to maintain
+  By seperating different parts of our app into different files and ES6 brought us exactly that possibility 
+  by implementing modules.
+  Problem with these modules is that browsers does not support this functionality yet.And so we have to bundle these modules together
+  into a single file using something called a module bundler, and the most popular one out there is called WebPack.
+  
+- WebPack can do so much more than bundling modules like codesplitting, loading menu types of assets like sas or images, decreasing 
+  our JS bundle size using an algorithm called treeshaking  and much much more.In this project we will use WebPack just to bundle
+   all the modules together.
+   
+- WebPack and Babel is NPM packages and the easiest way to run these packages is by using something called NPM scripts
+
+- Putting it all together with an automated development setup powered by NPM Scripts 
     
     
 
