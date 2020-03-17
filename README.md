@@ -229,6 +229,8 @@ the this keyword points at the global object,(the window object, in the browser)
    
    Node used for data intensive and real time appls ! ! !
    
+   In Node we don't have windows or documents objects  ! ! !
+   
 # Node module system 
 
   - operating system 
