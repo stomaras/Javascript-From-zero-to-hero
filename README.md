@@ -229,7 +229,12 @@ the this keyword points at the global object,(the window object, in the browser)
    
    Node used for data intensive and real time appls ! ! !
    
-# Install Node
+# Node module system 
+
+  - operating system 
+  - file system
+  - events
+  - http
 
 
   
