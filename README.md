@@ -163,6 +163,77 @@ the this keyword points at the global object,(the window object, in the browser)
 
 - Besides these two locally installed packages ( DevDependencies and Real Dependencies) we have the global packages 
   which installed using the "--global" flag here in the command line or "-g".
+  
+# Node JS
+
+- Node is an open source and cross-platform runtime environment for executing Javascript code outside of a browser , quite often we use 
+  node to build back-end services also called APIs or Application Programming Interfaces these are the services that power our client
+  applications like a web app running inside of a web browser or mobile app running on a mobile device these client apps are simply 
+  what the users sees and interacts with they are just the surface they need to talk to some services sitting on the server or in the 
+  cloud to store data send emails or push notifications kick off workflows and so on.
+  
+- Node is ideal for bulding Highly - Scalable, Data - Intensive, and real time back-end services that power our client applications
+
+- Advantages of NodeJS
+
+    - Great for prototyping and agile development
+    - Superfast and highly Scalable
+    - Javascript everywhere
+    - Cleaner and more consistent codebase
+    - Large ecosystem of open-source libs 
+    
+# Node Architecture 
+
+- Node is a runtime environment for executing Javascript code 
+  Before node we use JS only to build applications that run inside of a browser so every browser out there has a JS Engine
+  that takes our JS Code and converts to Machine Code ... For exampe FIrefox uses SpiderMonkey and GoogleChrome uses v8 engine
+  because these different varieties of engines ...js code behave differently in one browser or another 
+  Browser provides a runtime environment for JavaScript code 
+  In a browser we have the window or the document object -> document.getElementById('');
+  
+  In 2009 Ryan Dahl takes google v8 Engine which is the fastest JS Engine and embedded it inside a C++ programm and called that programm   Node
+  
+  Node is a programm that includes the v8 JavaScript Engine plus some additional modules that give us capabilities not available inside
+  browsers we can work with the file system or the network and so on both node and chrome share the same JS Engine but provide different 
+  runtime environments for JS 
+  
+  Node is not a programming Language ! ! !
+  Node is not a framework ! ! !
+  Node it's a runtime environment for executing JavaScript code ! ! !
+  
+# How Node Works 
+
+   Earlier i mentioned that node is Highly-Scalable, data-intensive and real time apps because of the non-blocking or asynchronous          nature of node what we mean by asynchronous? 
+   
+   Let me give a metaphor : Imagine you go to a restaurant a waiter comes to your table takes your order and gives it to the kitchen
+   then move to serve another table while the sef is preparing your meal so the same person can serve many different tables they don't
+   have to wait for the chef to cook one meal before they serve another table this is what we call : non - blocking or 
+   ASYNCHRONOUS architecture and this how NODE Applications work . The Waiter is like a Thread allocated to handle a request 
+   So a single thread is used to handle multiple requests in contrast to non-blocking we have blockin or sychronous architecture
+   
+   When we receive a request on the server a thread is allocated to handle that request as part of handling this requests it is likely 
+   that we are querying a database and as you know sometimes it may take a little while until the result is ready when database is          executing the query , the thread is sitting there waiting it can't be used to serve another client so we need a new thread to 
+   serve another client . Imagine what will happen if we have a large number of concurrent clients at some point we are going to 
+   run out of threads to serve these clients . So new client have to wait until three threads are available or if we want not wait we 
+   need to add more hardware so with this kind of architecture we are not utilize our resources efficiently this is the problem with 
+   blocking architecture this is how applications work with frameworks like asp.net . With asp.net you can use asynchronous architecture
+   but you must do extra work for that 
+   
+   In contrast node applications are asynchronous by default so you don't have to do anything extra. In Node we have a singkle thread to 
+   handle all requests . While our database executing a query our thread is used to serve another client when the database prepares 
+   the result it puts a message in what we call an Event Queue node is continously monitoring this queue in the background when if find 
+   an events in this queue it will take it out and process it, this kind of architecture makes node ideal for building applications 
+   that include a lot of disk and network access 
+   
+   Node do not use for CPU intensive apps ! ! !
+   
+   Node used for data intensive and real time appls ! ! !
+   
+# Install Node
+
+
+  
+
 
 
 
