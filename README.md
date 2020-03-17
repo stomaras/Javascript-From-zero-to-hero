@@ -237,6 +237,101 @@ the this keyword points at the global object,(the window object, in the browser)
   - file system
   - events
   - http
+  
+  Global Object : we use console.log(); function to log something on the console console object is what we call a gloabl object 
+                  it's part of the global scope which means we can access it anywhere 
+                  
+                  We have setTimeout() function which is globally available we can use it inside of a browser or inside of node 
+                  We have also clearTimeout() 
+                  We also have setInterval() which use to repeatedly call a function after a given delay 
+                  These is the global Objects In JS.
+                  
+                  In node we have a couple of other global objects 
+                  
+                  In browsers we have window object which represent our global scope 
+                  
+                  All the above functions belong to Window object 
+                  
+                  Window.setTimeout() = setTimeout()(Directly call) 
+                  
+                  var message = '';
+                  window.message
+                  
+                  In node we don't have window object , we have global object , so all the above functions we can access through the 
+                  global Object 
+                  
+                  global.setTimeout() and so on...
+                  
+                  NOTE ! ! !
+                  
+                    variables such as var message = ''; are not access by global
+                                   so console.log(global.message) => result undefined...
+                                   
+                    the message variable are not added to the global object they are only scoped to the current file app.js for example
+                    so not available outside of this file and this is because node modular system 
+ 
+- When we define a functionn for exmaple when we define a function like say... var sayHello = function(){
+                                                                                
+                                                                                }
+                                                                                
+                                                                                is added to the global scope and it's available 
+                                                                                via the window object 
+                                                                                
+                                                                                window.sayHello();
+  
+ 
+ - There is a problem with this behaviour in areal world application we often split our JS code into multiple files so it is 
+   possible that we have two files and in both these files we define thsi function sayHello() with the exact same name because this 
+   function is added to the global scope when we define this function in another file that new definition is going to ovrwrite the 
+   previous definition so this is the problem with the global scope 
+   
+ - So in order to build reliable and maintainable applications we should avoid defining variables and functions in the globale scope
+   instead we need modularity we nedd to create small building blocks or modules where we define our variables and functions 
+   so two variables with the same function and the same name don't overwrite another variable or functin defined somewhere else
+   that encapsulated inside of that module 
+   
+ - Now at the code of node we have this concept called module so every file in a node application is considered a module the variables 
+   and functions would define in that file or that module are scoped to that file , in object-oriented programming terms we say there 
+   are private key they are not available outside that container outside that module . If you want to use a function or variable that 
+   defined in one module ... outside of this module you need to explicity export it and make it public 
+   
+   NOTE ! ! ! 
+    Every Node Application has at least one file or one module which we call a main module 
+    
+    If we try to print the module on the screen which will be the result?
+    
+        console.log(module);
+        
+        cmd-> node app.js
+        
+        result -> Module {
+                             id: '.',
+                             path: 'C:\\Users\\sptom\\firstapp',
+                             exports: {},
+                             parent: null,
+                             filename: 'C:\\Users\\sptom\\firstapp\\app.js',
+                             loaded: false,
+                             children: [],
+                             paths: [
+                                     'C:\\Users\\sptom\\firstapp\\node_modules',
+                                     'C:\\Users\\sptom\\node_modules',
+                                     'C:\\Users\\node_modules',
+                                     'C:\\node_modules'
+                            ]
+                    }
+                    
+- We have an object MODULE is a json object with these key value : pairs so we have ID , every module has an id or a unique identifier
+  we have exports , parent , filename which is the complete path to that file loaded, which determines if boolean is loaded or not 
+  we have children and paths 
+  
+- In the NODE every file is a module and the variables and functins defined in that file are scoped to that module they are not
+  available outside of that module 
+  
+ - There are tools like jshint that we can scan all our JavaScript code for errors like that 
+ 
+ - Module Wrapper Function : Is the function that take arguments and run during the runtime of our programm
+ 
+    - 
 
 
   
