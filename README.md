@@ -331,6 +331,10 @@ the this keyword points at the global object,(the window object, in the browser)
  
  - Module Wrapper Function : Is the function that take arguments and run during the runtime of our programm
  
+ # Install Globally 
+    
+   - npm install live-server --global
+ 
  
     - 
 
