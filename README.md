@@ -349,6 +349,9 @@ the this keyword points at the global object,(the window object, in the browser)
 - ng new = command to create a new project 
 - Angular uses typescript as superset of javascript , so basically a language tha looks like a bit like JavaScript and is compiled down   to JavaScript in the end, but also have some extra features
 - with the command ng-serve i create a development server ...for all the time i develop the project
+- Angular is, of course , not a tool to allow us to write static HTML files, it allows us to mix static HTML code and dynamic things
+  we want to output in that code and actually, and what we have in our project is all of these components which angular work with 
+  app component , component has content which are html , has also styling which is in css file, also has a typescript file
 
  
 
