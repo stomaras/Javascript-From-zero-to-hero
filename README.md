@@ -347,9 +347,11 @@ the this keyword points at the global object,(the window object, in the browser)
   runtime
   
 - ng new = command to create a new project 
+- Angular uses typescript as superset of javascript , so basically a language tha looks like a bit like JavaScript and is compiled down   to JavaScript in the end, but also have some extra features
+- with the command ng-serve i create a development server ...for all the time i develop the project
+
  
- 
-    - 
+
 
 
   
