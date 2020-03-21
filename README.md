@@ -334,6 +334,19 @@ the this keyword points at the global object,(the window object, in the browser)
  # Install Globally 
     
    - npm install live-server --global
+   
+# Angular
+
+- Angular is a JavaScript Framework which allows you to create reactive Single-Page-Applications (SPAs)
+
+- A Single Page Application (SPA) is an application like the one shown here , you can navigate around and in the URL,
+  you can see that are different pages but in the end our page never changes.It's only one html file and a bunch of 
+  JavaScript code we got from the server and everything which you see here , every change, is rendered in the browser.
+  So it's gives user a very reactive UX.Every click changes this one single page we're using this one HTML page.
+  Well Javascript changes the DOM, changes whatever is displayed here(in the browser),by changing the HTML code during 
+  runtime
+  
+- ng new = command to create a new project 
  
  
     - 
