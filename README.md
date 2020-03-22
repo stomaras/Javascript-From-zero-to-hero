@@ -352,7 +352,42 @@ the this keyword points at the global object,(the window object, in the browser)
 - Angular is, of course , not a tool to allow us to write static HTML files, it allows us to mix static HTML code and dynamic things
   we want to output in that code and actually, and what we have in our project is all of these components which angular work with 
   app component , component has content which are html , has also styling which is in css file, also has a typescript file
+  
+- Basics of Angular : 1) What are components?
+                      2) What we do with this two-way data binding and how does that all work
+                      3) look at components and data binding
+                      4) Angular apps are built up from components and data binding is actually how you output data in your DOM or react                          to user events.
+                      5) Angular has another key feature Directives, ngModel , which we used with two-wat data binding,actually is such 
+                         a directive.
+                      6) Services and Dependency injection: Which makes it really easy for you to have your different pieces in tour app
+                                                            communicate with each other, to centralize code and to manage the state of 
+                                                            your application.
+                      7) Routing : we are always on one page since it is a single page application, but to the user it really looked
+                                   like one page.With routing, we introduce the management of different URLs so that, to the user,it
+                                   looks like we are switching pages even though technically, we will still remain on that single page
+                      8) Observables: something which will make more sense once you have been through to the routing section it is a
+                                      concept allowing you to work with asynchronous code.
+                      9) Forms: Then we will have a look at forms, because handling forms, handling user input is a key task of 
+                                almost any application 
+                      10) Pipes: Another nice feature which makes it easy for you to transform the output(So what you display on the 
+                                 template at runtime).
+                      11) Http: What if you need to run out to a web server? What if you want to store some data in a database?
+                                Angular can not connect to a database directly, but it can connect to a server which is able to and 
+                                the Http Section 
+                      12) Authentication: 
+                      13) Optimizations and Ng Modules
+                      14) Deployment
+                      15) Animation and Testing
+                      
+# TypeScript
 
+- Is really a superset of javaScript it offers more features than vanilla JS like classes , interfaces, types
+  TypeScript doesn't run in the browser, so it's compiled to JS in the end, this compilation is handled by the cli
+  Angular is meant to used together with Typescript.
+
+- We download a css framework bootstrap 3 with the command : npm install --save bootstrap@3
+
+- We must do angular aware of this framework
  
 
 
