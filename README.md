@@ -432,6 +432,8 @@ the this keyword points at the global object,(the window object, in the browser)
    
    - square brackets [] indicate to Angular that we are using property binding, that we want to dynamically bind some property 
      and disable the HTML attribute.
+     
+   - *ngIf = structural Directive 
    
    
  
