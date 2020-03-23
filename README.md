@@ -394,6 +394,22 @@ the this keyword points at the global object,(the window object, in the browser)
 - with the command --ng generate component servers-- ... you generate another component
 
 - you need to have at least one template in a component.
+
+# What is DataBinding ?
+
+-   You could basically translate data binding with communication. Communication between your Typescript code of your component, your
+    business logic and the templates, so what the user sees because you might have some result in your TypeScript code because you 
+    fetched something from a server or finished some calculation.
+    
+-   We get different ways of communication now, for example we want to output data from our TypeScript code in the HTML code in the
+    template. We can use string interpolation for this, or property binding 
+    
+-   Sometimes though, the other direction is interesting too, if the user clicks a button, you can kind of think of the user 
+    clicking the button on the template because again the template is the thing with which the user interacts, which he sees
+    and where he is aldo able to click buttons. So if we click a button, we maybe want to trigger something in our TypeScript Code
+    , so we need the other direction and we can get this other direction, we can react to user events with event binding. So we can bind 
+    to for example a click event to execute some code whenever it occurs and we also have one additional form of data binding where we
+    combine both directions, two-way data binding, where we are able to react events and output something at the same time.
  
 
 
