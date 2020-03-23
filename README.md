@@ -392,6 +392,8 @@ the this keyword points at the global object,(the window object, in the browser)
 - spec files used for testing
 
 - with the command --ng generate component servers-- ... you generate another component
+
+- you need to have at least one template in a component.
  
 
 
