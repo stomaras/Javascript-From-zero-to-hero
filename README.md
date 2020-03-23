@@ -423,6 +423,10 @@ the this keyword points at the global object,(the window object, in the browser)
                       in the AppModule( should be there by default in a CLI Project)!
                     -  <button class="btn btn-primary" [disabled] = "username === ''">Reset User</button>
                         - if the username is empty return true , otherwise return false and the button will be enabled.
+
+- NOTE ! ! ! 
+            
+   - Only in bigger applications you will think to split your app into multiple modules... in most case app-module.ts is okay
  
 
 
