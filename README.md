@@ -388,6 +388,10 @@ the this keyword points at the global object,(the window object, in the browser)
 - We download a css framework bootstrap 3 with the command : npm install --save bootstrap@3
 
 - We must do angular aware of this framework
+
+- spec files used for testing
+
+- with the command --ng generate component servers-- ... you generate another component
  
 
 
