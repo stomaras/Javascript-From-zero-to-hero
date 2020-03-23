@@ -416,6 +416,11 @@ the this keyword points at the global object,(the window object, in the browser)
 - input and click are default events provided by the DOM and they ship some data when they are fired, the click event gives us an 
   object which for example holds the coordinates where we clicked.Input event also gives us some data, some information about the
   event.Now we can capture this data with $event reserved word which gives us access to event data.
+  
+  
+- Important ! ! !
+                    - To be able to use 'ngModel', the FormsModule(from @angular/forms) needs to be added to your imports[] array
+                      in the AppModule( should be there by default in a CLI Project)!
  
 
 
