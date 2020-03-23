@@ -421,6 +421,8 @@ the this keyword points at the global object,(the window object, in the browser)
 - Important ! ! !
                     - To be able to use 'ngModel', the FormsModule(from @angular/forms) needs to be added to your imports[] array
                       in the AppModule( should be there by default in a CLI Project)!
+                    -  <button class="btn btn-primary" [disabled] = "username === ''">Reset User</button>
+                        - if the username is empty return true , otherwise return false and the button will be enabled.
  
 
 
