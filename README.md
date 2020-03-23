@@ -410,6 +410,12 @@ the this keyword points at the global object,(the window object, in the browser)
     , so we need the other direction and we can get this other direction, we can react to user events with event binding. So we can bind 
     to for example a click event to execute some code whenever it occurs and we also have one additional form of data binding where we
     combine both directions, two-way data binding, where we are able to react events and output something at the same time.
+    
+- The signal that we use Event Binding is parenthesses ()
+
+- input and click are default events provided by the DOM and they ship some data when they are fired, the click event gives us an 
+  object which for example holds the coordinates where we clicked.Input event also gives us some data, some information about the
+  event.Now we can capture this data with $event reserved word which gives us access to event data.
  
 
 
