@@ -1,4 +1,17 @@
-# Javascript-From-zero-to-hero
+# Javascript-From-zero-to-hero - Front-End Web Development
+
+# HTML5
+
+- for bold text, you use <strong>text</strong>
+- What is an Attribute? Additional indormation about an element
+- The attribute for indicating the image path in an <img> element is src
+- External Link is an external link that is not part of our project
+- What do we have to include into the opening tag of a link that should open in a new tab ? target="_blank"
+
+
+# CSS3
+
+
 
 # What is Javascript?
 
