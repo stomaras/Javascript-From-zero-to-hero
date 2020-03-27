@@ -1,6 +1,6 @@
 #  Front-End Web Development
 
-# HTML5
+# HTML5 - NOTES
 
 - for bold text, you use <strong>text</strong>
 - What is an Attribute? Additional indormation about an element
@@ -9,10 +9,35 @@
 - What do we have to include into the opening tag of a link that should open in a new tab ? target="_blank"
 
 
-# CSS3
+# CSS3 - NOTES
 
  - We change the font-size of the body and so the elements that are inside of the body inherit its style.
- - 
+   ,so child elements inherit the properties from their parent elements unless we overwrite their styles
+   
+ - In css3 colours are displayed combining red, green, and blue light this is the RGB model.
+   in RGB model each color defined by a combination of red, green and blue using an hexadecimal notation.
+   
+ - The lowest value for each color is zero, which is zero in hexadecimal, and the highest value is 255
+    which is ff in hexxadecimal.
+    
+ - With the command ctrl+e in brackets editor ... we can change the color
+ 
+ - Suppose you want to style one of the paragraph not all of them...that's why we have classes and IDs.We can attribute class and ID 
+   names to elements and then use these classes or IDs to select them in the CSS code.
+   
+ - Box model: 
+             - Content: text,images e.t.c
+             - Padding: transparent area around the content,inside of the boc
+             - Border: goes around the padding and the content
+             - Margin: Space between boxes
+             
+ - By deault all browsers add some default margins if we don't specify any 
+ 
+ - Border-Property allows you to do three things. 1) border width
+                                                  2) the line type
+                                                  3) the color
+                                                  
+ - div means divide our page into sections by creating boxes where we put our contents in
 
 
 
