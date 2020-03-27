@@ -1,4 +1,4 @@
-# Javascript-From-zero-to-hero - Front-End Web Development
+#  Front-End Web Development
 
 # HTML5
 
@@ -10,6 +10,9 @@
 
 
 # CSS3
+
+ - We change the font-size of the body and so the elements that are inside of the body inherit its style.
+ - 
 
 
 
