@@ -49,7 +49,72 @@
  - Using box-sizing: border-box, the width of an element is: exactly the width we defined
  - In order to create Containers we use: div element
  - We use float-property to put block elements side-by-side.
-
+ - Block-Level-elements: A block-level-element always starts on a new line and takes up the full-width available
+   For example <div>
+ - Inline Elements: An inline-element does not start on a new line and only takes up as much width sa necessary
+   For example <span>
+  
+      # Beautiful Typography
+      
+      - Use a font-size between 15 and 25 pixels
+      - Use (Really) Big Font size for headlines 32px-60px
+      - Use line spacing between 120% and 150%
+      - Write 45-50 characters per line
+      - Use good fonts
+      - Google web fonts: is a Really good free resource where you can get Web Fonts
+      
+    # How To Choose A Font
+      
+      - Choose a font which reflects the look and feel you want
+      - Decide: a serif typeface
+      - Use a good font
+      - Use only that type face
+      
+    # Using Colors like a Pro
+    
+      - Use only one Base Color
+      - Any different Color than black,white or some shade of grey
+      - Flat UI Colors is a very Cool Resource to choose your base color
+      - Use a tool if you want to Use more colors like Adobe CC or Paletton
+      - Use color to draw attention
+      - Never use black in your design
+      
+   # Choose colors wisely
+   
+   In order to get the desired response from your audience.That's why there are
+   phycological effects behind each color
+   
+     - Red : power,passion,strength and excitement want to be transmitted
+     - Orange : attention without being as overpowering as red, means cheerfulness and creativity,friendliness,confidence and courage
+     - Yellow : Energetic, gives feel of happiness and liveliness also associated with curiosity,intelligence,brightness
+     - Green : Color of harmony, nature, life and health.Alo associated with money.In design green can have a balancing and harmonizing
+     - Blue : means patience,peace,trustworthiness and stability, it is associated with proffesionalism, trust and honor. That's why 
+              social networks use the Color Blue -> like fb
+     - Purple : Power, nobility, and wealth,sense of wisdom,royalty,luxury and mystery
+     - Pink : Romance,possitivity,passitivity,care,peace,affection
+     - Brown : Color of Relaxation, confidence, earthiness, nature, durability, comfort, reliability
+     
+  # Working with images
+  
+  Techniques:
+  
+   - Put text directly on the image work only on Dark or White Image because you have contrast
+   - OVERLAY The image
+   - Put your text in a Box
+   - Blur the image
+   - The floor fade : increase text readability dramatically
+   - floor fade: is a technique where an image subtly fades towards black at the bottom, with white text written over it
+                 if i want a text at the bottom of an image i use floor fade solution.
+                 
+ # Working with icons
+ 
+  - Use icons to list features/steps
+  - Use icons for actions and links
+    - Icon should be recognizable 
+    - Label your icons
+  - Icons should not take a center stage
+  - Use icons fonts whenever possible
+  - There are tons of online Resources with icons
 
 
 # What is Javascript?
