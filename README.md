@@ -115,6 +115,15 @@
   - Icons should not take a center stage
   - Use icons fonts whenever possible
   - There are tons of online Resources with icons
+  
+ # Spacing and layout
+ 
+  - whitespace just space where there isn't any stuff, is the key to create a clean and simple look and feel
+     - put whitespace between your elements
+     - put whitespace between your groups of elements
+     - put whitespace between your website sections
+  - Define Hierarchy   
+  
 
 
 # What is Javascript?
