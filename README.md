@@ -7,6 +7,9 @@
 - The attribute for indicating the image path in an <img> element is src
 - External Link is an external link that is not part of our project
 - What do we have to include into the opening tag of a link that should open in a new tab ? target="_blank"
+- Block - Level -Elements: always start on a new line and takes up the full-width available for example <div>
+- Inline Elements: An inline element does not start on a new line and only takes up as much width as necessary
+  for example <span>
 
 
 # CSS3 - NOTES
@@ -38,6 +41,14 @@
                                                   3) the color
                                                   
  - div means divide our page into sections by creating boxes where we put our contents in
+ 
+ - CSS is written in Rules.Each rule consist of : a selector and a declaration block
+ - The color with the shade of grey is : #434343
+ - Classes can be used an many times as we wish, while ID's can be used only once in each HTML document
+ - The CSS Property that we use to create space between elements is margin.
+ - Using box-sizing: border-box, the width of an element is: exactly the width we defined
+ - In order to create Containers we use: div element
+ - We use float-property to put block elements side-by-side.
 
 
 
