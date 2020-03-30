@@ -173,6 +173,12 @@
   # Killer website project
   
    - Use google fonts in order to get css from the internet
+   - Responsive Web Design means website working well in all devices
+   
+   # Three ingredients to responsive webdesign
+   - Fluid grid: all layout elements are sized in relative unites,such as percentages,instead of absolute units like pixels
+   - Flexible images: are also sized in relative unites
+   - Media QueriesL allow us to specify different CSS style for different browser widths
    
 
 
