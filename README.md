@@ -176,9 +176,21 @@
    - Responsive Web Design means website working well in all devices
    
    # Three ingredients to responsive webdesign
+   
    - Fluid grid: all layout elements are sized in relative unites,such as percentages,instead of absolute units like pixels
    - Flexible images: are also sized in relative unites
    - Media QueriesL allow us to specify different CSS style for different browser widths
+   
+   # NOTE!!!
+   
+   - Buttons or links in general in CSS can have different states:
+    - link : how the elements looks in a normal state
+    - visited: how the elements will be look like after visited
+    - active: when we click on a button
+    - hover: when we put our mouse over a button.
+    - the transition element in css means the time that need each element in order to change
+    - Exaple: tansition: background-color 0.2s, border 0.2s, color 0.2s;
+    - we use flaticons.com, www.0to255.com: we get different dimensions of the same color!
    
 
 
