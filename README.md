@@ -191,6 +191,20 @@
     - the transition element in css means the time that need each element in order to change
     - Exaple: tansition: background-color 0.2s, border 0.2s, color 0.2s;
     - we use flaticons.com, www.0to255.com: we get different dimensions of the same color!
+    - .main-nav: refers to the navigation itself
+    - .main-nav li: refers to the elements from the navigation
+    - text-rendering: CSS property provides information to the rendering engine about what to optimize. The browser makes trade-offs 
+                      among speed, legibility, and geometric precision.
+    - font-size: how large the characters displayed on a screen or printed on a page
+    - font-family: property specifies the font for an element can hold several font-names.if the browser does not support the 
+                   the first font, it tries the next font.
+    - types of font: 1) family-name: "times","courier","arial" e.t.c
+                     2) generic-family: "serif","sans-serif" e.t.c
+    - font-weight: property sets how thick or thin characters in text should be displayed 
+                   - Values :
+                              - 100,200,300,400,500,600,700,800,900
+                              - normal,bold,bolder,lighter
+    - border-bottom: is a shorthand property for width,style,color
    
 
 
