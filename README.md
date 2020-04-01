@@ -207,6 +207,7 @@
                              - 100,200,300,400,500,600,700,800,900
                              - normal,bold,bolder,lighter
    - border-bottom: is a shorthand property for width,style,color
+   - i use icons from https://ionicons.com/v2/ 
    
 
 
