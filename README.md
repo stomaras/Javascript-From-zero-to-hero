@@ -208,7 +208,26 @@
                              - normal,bold,bolder,lighter
    - border-bottom: is a shorthand property for width,style,color
    - i use icons from https://ionicons.com/v2/ 
-   
+   - figure is like a Container, can contain image or caption for that image
+   - opacity property : sets the opacity level for an element, the opacity-level descibes the transparency-level,where 1 is not 
+                        transparent at all, 0.5 is 50% see-through, and 0 is completely transparent.
+   - overflow : specifies what should happen if content overflows an element's box
+                Values of Overflow : - visible
+                                     - hidden
+                                     - scroll
+                                     - auto
+  - transform : property applies  a 2D or 3D transformation to an element... Allows you to : - rotate
+                                                                                             - scale
+                                                                                             - move
+                                                                                             - skew elements
+  - The transition property is a shorthand property for:
+
+      - transition-property
+      - transition-duration
+      - transition-timing-function
+      - transition-delay
+      
+   - Note: Always specify the transition-duration property, otherwise the duration is 0s, and the transition will have no effect.
 
 
 # What is Javascript?
