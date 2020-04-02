@@ -216,10 +216,10 @@
                                      - hidden
                                      - scroll
                                      - auto
-  - transform : property applies  a 2D or 3D transformation to an element... Allows you to : - rotate
-                                                                                             - scale
-                                                                                             - move
-                                                                                             - skew elements
+  - transform : property applies  a 2D or 3D transformation to an element... Allows you to : rotate
+                                                                                             scale
+                                                                                             move
+                                                                                             skew elements
   - The transition property is a shorthand property for:
 
       - transition-property
