@@ -228,6 +228,10 @@
       - transition-delay
       
    - Note: Always specify the transition-duration property, otherwise the duration is 0s, and the transition will have no effect.
+   - In order to use italic letters in our project , we must include a web-font!
+   - In order to put something before our class we use: cite:before{}
+   - In order to use some quotation marks with the before we take help of: https://css-tricks.com/snippets/html/glyphs/
+   - When we make an element with absolute position, we have to ensure that its parent has a relative position.
 
 
 # What is Javascript?
