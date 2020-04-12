@@ -232,6 +232,7 @@
    - In order to put something before our class we use: cite:before{}
    - In order to use some quotation marks with the before we take help of: https://css-tricks.com/snippets/html/glyphs/
    - When we make an element with absolute position, we have to ensure that its parent has a relative position.
+   - There is difference between "btn btn-full" and "btn btn-ghost"
 
 
 # What is Javascript?
