@@ -233,6 +233,8 @@
    - In order to use some quotation marks with the before we take help of: https://css-tricks.com/snippets/html/glyphs/
    - When we make an element with absolute position, we have to ensure that its parent has a relative position.
    - There is difference between "btn btn-full" and "btn btn-ghost"
+   - box-shadow : x-axis offset, y-axis offset, blur, spread color... to attach more than one shadow to an element 
+   - there is some special HTML characters: for the space is &nbsp
 
 
 # What is Javascript?
