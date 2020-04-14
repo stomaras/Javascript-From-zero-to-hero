@@ -266,7 +266,27 @@
    - I can't install internet explorer on a MAC.
    - We can get useful scripts from www.jsdelivr.com
    - One very handy tool to see what exactly works on which browser is https://caniuse.com site
-     we write some CSS3 properties and we can see exactly where it works.
+     we write some CSS3 properties and we can see exactly where it works. 
+  
+ # Introduction to jQuery
+ 
+   - jquery is the most popular Javascript library in the world
+   - it is completely free
+   - JQuery makes it incredibly easy to:
+      - Select and manipulate HTML Elements
+      - Create animations
+      - Develop Ajax applications
+      
+   - Thousands of jquery plug-ins, on internet for free:
+   
+   - First plug-in is Magnific Popup
+   - Second plug-in Tooltipster
+   - Thirs plug-in is Maplace.js
+   - Fourth plug-in Typer.js
+   - Fifth plug-in One Page Scroll
+   
+   - So, to include jQuery, we use the Google Hosted Libraries Distribution Network
+   - JQuery is also a huge Javascript file, which creates jquery which we can use to create some powerful stuff!
 
 # What is Javascript?
 
