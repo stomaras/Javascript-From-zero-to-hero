@@ -256,7 +256,17 @@
    
    - <meta name="viewport" content="width=device-width",initial-scale-1.0">
    - all that this will do is to tell mobile phones, for instance, that they should not zoom out the page
-   -
+   - overflow-x: property specifies whether to clip the content, add-a-scroll-bar, or display overflow content of a 
+                 block-level-elemetn,when it overflows at the left and right edges.
+   - test the site in different browsers is very important thing in Web-Development
+   - Each browser interprets html5,cc3 in a slightly different way
+   - In order our website work same in all browsers are to prefixes css browser
+   - Prefixes css browser are a way for browser makers to add support for new CSS features
+   - In order to ayto-prefix all the Code, we press CTRL+A -> Edit -> Auto prefix selection in Brackets Editor
+   - I can't install internet explorer on a MAC.
+   - We can get useful scripts from www.jsdelivr.com
+   - One very handy tool to see what exactly works on which browser is https://caniuse.com site
+     we write some CSS3 properties and we can see exactly where it works.
 
 # What is Javascript?
 
