@@ -237,7 +237,26 @@
    - there is some special HTML characters: for the space is &nbsp
    - border-radius-property : allows you to add rounded corners to elements, can have four values. 1st value top-left corner
                               2nd value top-right corner, 3rd value bottom-right corner, 4th value bottom-left-corner
-
+   - We link the label with the input ... for exampe 
+   - <label for="name">
+   -  <input  type="text" name="name" id="name">
+   - The above trick, works only with texts forms and also with select element,so don't work with checkbox and textarea!
+   - outline: [<outline-width> || <outline-style> || <outline-color>]
+   - with the social media we will change the color of each to the color that has in reality.
+   - social media colours - HEX and RGB colors: designpieces.com/2012/12/social-media-colours-hex-and-rgb/
+  
+  
+  # Responsive Web-Design with Media Queries
+  
+   - Media Queries are what will enable our website to all different css style declarations based on the current 
+     browser width or the width of a mobile device that displays our site. These media queries will trigger at different breakpoints
+     
+   - Breakpoints are screen width at which we want our website to change the way it looks, in order to look good in all devices.
+     The standard breakpoints are for tablet and for mobile.
+   
+   - <meta name="viewport" content="width=device-width",initial-scale-1.0">
+   - all that this will do is to tell mobile phones, for instance, that they should not zoom out the page
+   -
 
 # What is Javascript?
 
