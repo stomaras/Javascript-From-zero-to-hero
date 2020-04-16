@@ -39,4 +39,36 @@ $(document).ready(function(){
     });
     
     
+    /* Animations on scroll */
+    
+    
+    /* features */
+    $('.js--wp-1').waypoint(function(direction) {
+        $('.js--wp-1').addClass('animated fadeIn'); 
+    }, {
+        offset: '50%'
+    })
+    
+    /* image fadeInUp */
+    $('.js--wp-2').waypoint(function(direction) {
+        $('.js--wp-2').addClass('animated fadeInUp'); 
+    }, {
+        offset: '50%'
+    })
+    
+    /* cities */
+    $('.js--wp-3').waypoint(function(direction) {
+        $('.js--wp-3').addClass('animated fadeInUp'); 
+    }, {
+        offset: '50%'
+    })
+    
+    /* attention to pricing plan with pulse */
+    $('.js--wp-4').waypoint(function(direction) {
+        $('.js--wp-4').addClass('animated pulse'); 
+    }, {
+        offset: '50%'
+    })
+    
+    
 });
