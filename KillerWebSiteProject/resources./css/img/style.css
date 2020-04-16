@@ -8,13 +8,15 @@ Orange Color: #e67e22
     box-sizing: border-box;
 }
 
-html {
+html,
+body {
     background-color: #fff;
     color: #555555;
     font-family: 'Lato', 'Arial', sans-serif;
     font-weight: 300;
     font-size: 20px;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
 }
 
 .clearfix {zoom: 1}
@@ -217,6 +219,17 @@ header {
     margin-top: 20px;
 }
 
+.logo-black {
+    display: none;
+    height: 50px;
+    width: auto;
+    float: left;
+    margin-top: 5px;
+}
+
+.logo-black { display: none;}
+
+/* Main navi */
 .main-nav {
     float: right;
     list-style: none;
@@ -245,6 +258,28 @@ header {
     border-bottom: 2px solid #e67e22;
 }
 
+/* Sticky navi */
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 2px #efefef;
+    z-index: 9999;
+}
+
+.sticky .main-nav { margin-top: 18px; }
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+    padding: 16px 0;
+    color: #555;
+}
+
+
+.sticky .logo { display: none; }
+.sticky .logo-black { display: block; }
 /*--------------------------------------------------------*/
 /* FEATURES */
 /*--------------------------------------------------------*/
@@ -575,3 +610,45 @@ footer p{
     text-align: center;
     margin-top: 40px;
 }
+
+
+
+
+
+/*--------------------------------------------------------*/
+/* Animations */
+/*--------------------------------------------------------*/
+
+.js--wp-1,
+.js--wp-2,
+.js--wp-3
+{
+    opacity: 0;
+    animation-duration: 1s;
+}
+
+.js--wp-4 {
+    animation-duration: 1s;
+}
+
+.js--wp-1.animated,
+.js--wp-2.animated,
+.js--wp-3.animated 
+{
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
