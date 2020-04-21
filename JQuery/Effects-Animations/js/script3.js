@@ -6,4 +6,8 @@ $(function() {
         "width": "50px",
         "margin-top": "25px"
     }, 1000);
+    
+    $("p").animate({
+        fontSize: "20px"
+    }, 1000);
 });
