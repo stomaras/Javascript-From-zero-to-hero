@@ -5,6 +5,54 @@ $(function () {
   //});
   //$("#content").append("<p>This is a dynamically added paragraph</p>");
 
+ //--------------------------------------------- Coding Activity: Creating an image gallery with lightbox preview / Section 9 ---------------//
+ // So we are going to have some nice effects when hovering an image and then you can also click on one to be able to get a nice preview
+ // in a light box.
+ var galleryItems = $(".gallery").find("img");
+ galleryItems.css("width", "33%").css("opacity","0.7");
+
+ galleryItems.mouseenter(function() {
+   $(this).stop().fadeTo(500, 1);
+ });
+
+ galleryItems.mouseleave(function() {
+   $(this).stop().fadeTo(500, 0.7);
+ });
+
+ galleryItems.click(function() {
+   var source = $(this).attr("src");
+   var image = $("<img>").attr("src", source).css("width", "100%");
+   $(".lightbox").empty().append(image).fadeIn(2000);
+ });
+
+ $(".lightbox").click(function() {
+   $(this).stop().fadeOut();
+ });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   //-----------------------------------------------Passing Additional Data To Events / Section 8 --------------------------------------//
 
 
@@ -63,23 +111,23 @@ $(function () {
   // .on("click", function() {...})
   // Now what you can do with the on function you can actually assign the same event handler for multiple event types
   // So as the first parameter here you pass in a string in which you specify all the event types like click, hover e.t.c
-  $("html").on("click keydown", logEvent);
+  //$("html").on("click keydown", logEvent);
 
-  var images = [
-    "images/laptop-mobile_small.jpg",
-    "images/laptop-on-table_small.jpg",
-    "images/people-office-group-team_small.jpg"
-  ];
-  var i=0;
-  var galleryImage = $(".gallery").find("img");
-  galleryImage.on("click", switchToNextImage);
+  //var images = [
+  //  "images/laptop-mobile_small.jpg",
+  //  "images/laptop-on-table_small.jpg",
+  //  "images/people-office-group-team_small.jpg"
+  //];
+  //var i=0;
+  //var galleryImage = $(".gallery").find("img");
+  //galleryImage.on("click", switchToNextImage);
 
-  function  switchToNextImage() {
-    i = (i + 1) % images.length;
-    galleryImage.fadeOut(function() {
-      galleryImage.attr("src", images[i]).fadeIn();
-    });
-  }
+  //function  switchToNextImage() {
+  //  i = (i + 1) % images.length;
+  //  galleryImage.fadeOut(function() {
+  //    galleryImage.attr("src", images[i]).fadeIn();
+  //  });
+  //}
 
   // Click handler can be attached by passing a callback function to the click()
   // function. Whatever code you write into the callback function is then
