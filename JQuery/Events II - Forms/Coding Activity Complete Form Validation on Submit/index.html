@@ -30,10 +30,11 @@
 
       <input id="amount" type="range" min="1" max="9" value="5"><br>
 
-      <textarea id="checkbox" type="checkbox" name="cb"></textarea>
-      <span id="message-feedback"></span><br><br>
+      <textarea id="message" name="message" cols="30" rows="10"></textarea>
+      <span id="message-feedback"></span><br>
 
-      <input id="checkbox" type="checkbox" name="cb"><label for="cb">Check me</label>
+      <!-- Here id,type,for must be the same in order to can select with #checkbox inside my script -->
+      <input id="checkbox" type="checkbox" name="cb"><label for="checkbox">Check me</label>
       <span id="checkbox-feedback"></span><br><br>
 
       <input id="submit" type="submit" value="Submit">
@@ -41,3 +42,4 @@
 </div>
 </body>
 </html>
+
