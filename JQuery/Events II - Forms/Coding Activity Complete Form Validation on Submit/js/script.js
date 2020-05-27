@@ -1,4 +1,9 @@
 $(function() {
+
+    var form = $("#form");
+    enableFastFeedback(form);
+
+
     $("#form").submit(function(event) {
         var name = $("#name").val();
         var password = $("#password").val();
@@ -11,6 +16,59 @@ $(function() {
         validateCheckboxField(checked, event);
     });
 });
+
+function enableFastFeedback(formElement) {
+
+    var nameInput = formElement.find("#name");
+    var passwordInput = formElement.find("#password");
+    var messageInput = formElement.find("#message");
+    var checkboxInput = formElement.find("#checkbox");
+
+    nameInput.blur(function(event) {
+        var name = $(this).val();
+        validateNameField(name, event);
+
+        if(!isValidName(name)) {
+            $(this).css({"box-shadow": "0 0 4px #811", "border": "1px solid #600"});
+        } else {
+            $(this).css({"box-shadow": "0 0 4px #181", "border": "1px solid #060"});
+        }
+    })
+
+    passwordInput.blur(function(event) {
+        var password = $(this).val();
+        passwordValidationField(password, event);
+
+        if(!isValidPassword(password)) {
+            $(this).css({"box-shadow": "0 0 4px #811", "border": "1px solid #600"});
+        } else {
+            $(this).css({"box-shadow": "0 0 4px #181", "border": "1px solid #060"});
+        }
+    })
+
+    messageInput.blur(function(event) {
+        var message = $(this).val();
+        validateMessageField(message, event);
+
+        if(!isValidMessage(message)) {
+            $(this).css({"box-shadow": "0 0 4px #811", "border": "1px solid #600"});
+        } else {
+            $(this).css({"box-shadow": "0 0 4px #181", "border": "1px solid #060"});
+        }
+    })
+
+    checkboxInput.change(function(event) {
+        var isChecked = $(this).is(":checked");
+        validateCheckboxField(isChecked, event);
+
+        if(!isChecked) {
+            $(this).add("label[for='cb']").css({"box-shadow": "0 0 4px #811", "border": "1px solid #600"});
+        } else {
+            $(this).add("label[for='cb']").css({"box-shadow": "0 0 4px #181", "border": "1px solid #060"});
+        }
+    });
+
+}
 
 // Now in order to make this submit event handler not get to very long 
 
