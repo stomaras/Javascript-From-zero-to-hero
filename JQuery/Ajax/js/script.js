@@ -16,5 +16,6 @@ $(function() {
         alert("Could not find file");
       }
       console.log(response);
+      
     });
 });
