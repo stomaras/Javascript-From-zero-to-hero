@@ -1,0 +1,88 @@
+<!--
+    1) Disable : will disable the dragable functionality temporarily
+    2) Enable  : will enable the dragable functionality again
+    3) Destroy : will destroy the dragable functionality permanently
+    4) Option  : will be used to set or get the value of options.
+
+    You can use the option method in actually three different ways 
+    1st set the value of an option 
+    2nd get the value of an option 
+    3rd get the value of all the options
+
+    In order to set an option you have to set 3 parameters the ( option , nameOfOption, ValueOfOption )
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction: Draggable</title>
+    <style>
+        #main
+        {
+            width: 500px;
+            height: 500px;
+            margin: 0px auto;
+            border: 2px solid black;
+        }
+        .sub 
+        {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            padding: 5px;
+            margin: 5px;
+            float: left;
+        }
+        p{
+            border: 5px solid black;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+       $(document).ready(function(){
+            $("#sub1, #sub2").draggable();
+            $("#sub3").draggable({revert:true, revertDuration:1000});
+            $("#btnDisable").click(function(){
+                $("#sub1").draggable("disable");
+            });
+            $("#btnEnable").click(function(){
+                $("#sub1").draggable("enable");
+            });
+            $("#btnDestroy").click(function(){
+                $("#sub2").draggable("destroy");
+            });
+            $("#btnGet").click(function(){
+                alert($("#sub3").draggable("option", "revert"));
+            });
+            $("#btnSet").click(function(){
+                $("#sub1").draggable("option",{"cursor":"grab","revert":true});
+            });
+            $("#btnOptions").click(function(){
+                var obj = $("#sub3").draggable("option");
+                alert(obj.revert);
+                alert(obj.revertDuration);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="main1">
+        <div class="sub" id="sub1" style="background: red;"></div>
+        <div class="sub" id="sub2" style="background: green;"></div>
+        <div class="sub" id="sub3" style="background: blue;"></div>
+    </div>
+    <br />
+    <button id="btnDisable">Disable</button>
+    <button id="btnEnable">Enable</button>
+    <button id="btnDestroy">Destroy</button>
+    <button id="btnGet">Get option</button>
+    <button id="btnSet">Set option</button>
+    <button id="btnOptions">Get All Options</button>
+
+</body>
+</html>
