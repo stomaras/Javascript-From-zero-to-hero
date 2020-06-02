@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction: Draggable</title>
+    <style>
+        #box
+        {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            border: 1px solid black;
+            margin: 2px;
+        }
+        #imp
+
+        {
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("p:last").draggable();
+        });
+    </script>
+</head>
+<body>
+    <!-- Makes website more interactive -->
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu eros sit amet felis euismod condimentum nec et tellus. Praesent leo lacus, posuere sed bibendum eu, sagittis quis tortor. Morbi nunc libero, vulputate quis rhoncus feugiat, vestibulum sit amet risus. Curabitur fermentum varius luctus. Proin magna ante, suscipit vitae convallis a, lobortis id nibh. Quisque vehicula condimentum fermentum. Quisque in est quis elit semper luctus vitae in est. Maecenas venenatis ultrices dapibus. Phasellus eu ipsum viverra, eleifend massa et, iaculis ex. Morbi vitae augue in ante euismod auctor ac nec orci. Vestibulum vulputate efficitur nisl, ut lacinia nisi vestibulum viverra. In porta libero urna, egestas gravida est dapibus at. Nam ac velit varius, suscipit ex laoreet, sagittis ex. Phasellus egestas tincidunt feugiat. Ut aliquam lobortis commodo. Nulla eu eros ac nunc tincidunt laoreet.
+
+        Nunc sodales massa id nibh semper ultricies et non elit. Aenean ut nibh eleifend, efficitur felis eget, mattis nunc. Aenean quam purus, fermentum vel vulputate ac, rhoncus varius mi. Aliquam erat volutpat. In vel cursus est. Fusce convallis venenatis augue, quis tincidunt massa fermentum nec. Vivamus placerat, sapien nec aliquet suscipit, neque nibh pretium arcu, sit amet commodo velit tellus vestibulum ex. Nulla nec lectus id dui volutpat ultricies vel non eros. Aliquam quis diam sed urna pellentesque rhoncus.
+        
+        Donec eget quam in dui pharetra viverra. Curabitur vitae lectus fermentum, rutrum dolor ac, elementum dolor. Curabitur iaculis malesuada rutrum. Fusce ullamcorper tortor pretium ligula luctus, pharetra gravida arcu porttitor. Sed in dui in sem vulputate mattis. Aliquam erat volutpat. Suspendisse efficitur, turpis ut accumsan placerat, ligula lorem blandit neque, nec feugiat felis neque a ex. Sed efficitur ex id lectus mattis, sed interdum massa scelerisque. Donec bibendum hendrerit luctus. Vivamus eget accumsan dolor. Aliquam elementum finibus convallis. Quisque quis aliquet mauris. Vestibulum id turpis sapien. Integer vel nunc vitae turpis convallis aliquet vel eget sapien. Pellentesque neque sem, vestibulum eu tincidunt eget, imperdiet nec risus. Morbi ac tempor lectus.
+        
+        Aenean at augue dui. Nullam sit amet arcu nec nisi volutpat tempor. In vitae sem lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a ex vel sapien commodo vestibulum ullamcorper in tellus. Aenean a pellentesque lectus, id rhoncus ligula. Duis finibus sollicitudin pharetra. Ut efficitur consequat leo sed iaculis. Cras ac nunc in lacus vulputate ultrices sed congue ligula. Vestibulum congue ante vel metus efficitur pharetra in sit amet lectus.
+        
+        Praesent ut tellus neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas in nulla ut ante dapibus ultrices ac sed eros. Curabitur interdum nibh eu magna hendrerit maximus. Sed orci mauris, pharetra sit amet ultricies id, varius ut massa. Donec quam metus, venenatis a vestibulum at, placerat in nulla. Vivamus ut semper enim, eget ultricies lorem. In pulvinar dui et sem rhoncus, viverra viverra risus iaculis.</p>
+    <div id="box"></div>
+    <p id="imp">Some important message!</p>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction: Draggable</title>
+    <style>
+        #main
+        {
+            width: 500px;
+            height: 500px;
+            margin: 0px auto;
+            border: 2px solid black;
+        }
+        .sub 
+        {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            padding: 5px;
+            margin: 5px;
+            float: left;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        /* This is to check whether our document is ready 
+            First let's try to make main development draggable*/
+        $(document).ready(function(){
+            $(".sub, p").draggable({cancel:"#sub2, #sub1"});
+            $("p:first").draggable({disabled:true});
+        });
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div class="sub" id="sub1" style="background: red;"></div>
+        <div class="sub" id="sub2" style="background: green;"></div>
+        <div class="sub" id="sub3" style="background: blue;"></div>
+        <p>This is a paragraph.</p>
+        <p>This is another paragraph.</p>
+    </div>
+</body>
+</html>
