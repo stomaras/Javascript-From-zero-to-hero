@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction: Draggable</title>
+    <style>
+        #main
+        {
+            width: 500px;
+            height: 500px;
+            margin: 0px auto;
+            border: 2px solid black;
+        }
+        .sub 
+        {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            padding: 5px;
+            margin: 5px;
+            float: left;
+        }
+        p{
+            border: 5px solid black;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+       $(document).ready(function(){
+            $("#sub1").draggable({helper:"clone", opacity:.5});
+            $("#sub2").draggable();
+            $("#sub3").draggable({helper:function(){
+                return $("<div style='border:5px solid purple; background:black;color:white'>Custom Helper</div>");
+            }});
+       });
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div class="sub" id="sub1" style="background: red;"></div>
+        <div class="sub" id="sub2" style="background: green;"></div>
+        <div class="sub" id="sub3" style="background: blue;"></div>
+    </div>
+</body>
+</html>
