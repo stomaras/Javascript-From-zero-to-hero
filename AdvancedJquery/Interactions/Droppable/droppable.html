@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Droppable</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <style>
+         #box
+        {
+            width: 100px;
+            height: 100px;
+            background-color:purple;
+            border: 1px solid black;
+            margin: 2px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#item").draggable();
+            $("#box").droppable({drop:function(){
+                alert("The item is dropped"); 
+            }});
+        });
+    </script>
+
+</head>
+<body>
+    <!-- Now before making the second element droppable let's make the first element draggable -->
+    <div id="box"></div>
+    <div id="item">item</div>
+    
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction: Droppable</title>
+    <style>
+        .item {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 5px;
+            padding: 5px;
+            background: purple;
+        }    
+
+        #area1, #area2
+        {
+            width: 400px;
+            height: 500px;
+        }
+
+        #main, #area1, #area2
+        {
+            float: left;
+            margin: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#item2, #item4").draggable({scope:"purple"});
+            $("#area1").droppable({scope:"purple", drop:function(){
+                alert("The item purple is dropped 2 and 4");
+            }});
+
+            $("#item1, #item3").draggable({scope:"pink"});
+            $("#area2").droppable({scope:"pink", drop:function(){
+                alert("The item pink is dropped 1 and 3");
+            }});
+        });
+    </script>
+</head>
+<body>
+
+    <!-- The value of scope option must be the same for purple boxes and purple area -->
+    <!-- The value of scope option must be the same for pink boxes and pink area -->
+
+    <div id="main">
+        <div id="item1" class="item" style="background: pink;"></div>
+        
+        <div id="item2" class="item" style="background: purple;"></div>
+        
+        <div id="item3" class="item" style="background: pink;"></div>
+
+        <div id="item4" class="item" style="background: purple;"></div>
+
+    </div>
+
+    <div id="area1" style="border: 5px solid purple;"></div>
+
+    <div id="area2" style="border: 5px solid pink;"></div>
+
+</body>
+</html>
