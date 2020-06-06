@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction: Droppable</title>
+    <style>
+        .item {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 5px;
+            padding: 5px;
+            background: purple;
+        }    
+
+        #area
+        {
+            width: 400px;
+            height: 500px;
+        }
+
+        #main, #area
+        {
+            float: left;
+            margin: 10px;
+        }
+        
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".item").draggable();
+        
+            $("#area").droppable({
+                create: function(){
+                    $("#status").html("A droppable is created")
+                },
+                drop:function(){
+                    $("#status").html("The item is dropped!");
+                },
+                over: function(){
+                    $("#status").html("The draggable is dragging over the droppable!!!");
+                },
+                out: function(){
+                    $("#status").html("The item is dragged over the droppable!");
+                },
+                activate: function(){
+                    $("#status").html("The draggable starting moving!!!");
+                },
+                deactivate: function(){
+                    $("#status").html("The draggable stopped moving!!!");
+                }
+            
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!--
+        In this point in time we will see different events associated with droppable those events are 
+        1) create,
+        2) drop,
+        3) over,
+        4) out,
+        5) activate,
+        6) de-activate
+        
+        So create event is triggered when a droppable element is created 
+        The drop event is triggered when a accepted draggble element is drop into the droppable area
+        The over event is triggered when an accepted draggable is dragged over the droppable area
+        The out event is triggered when an accepted draggable element moves out of the droppable area
+        The activate event gets triggered when an accepted draggable element starts moving 
+        The de-activate event gets triggered when an accepted draggable element stops moving
+    -->
+
+    <div id="main">
+        <div id="item1" class="item" style="background: pink;"></div> 
+    </div>
+    <div id="area" style="border: 5px solid black;"></div>
+    <div id="status"></div>
+</body>
+</html>
