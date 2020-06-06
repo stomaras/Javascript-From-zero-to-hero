@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction: Droppable</title>
+    <style>
+        .item {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 5px;
+            padding: 5px;
+            background: purple;
+        }  
+
+        .item2{
+            width: 100px;
+            height: 100px;
+            border: 1px solid purple;
+            margin: 5px;
+            padding: 5px;
+            background: black; 
+        }  
+
+        #area
+        {
+            width: 400px;
+            height: 500px;
+        }
+
+        #main, #area
+        {
+            float: left;
+            margin: 10px;
+            margin-left: 100px;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <!-- Tolerance Options : fit, pointer, touch -->
+    <script>
+        $(document).ready(function(){
+            $("#item").draggable();
+            $("#item2").draggable();
+            $("#area").droppable({tolerance:"pointer", drop:function(){
+                alert("The item is dropped");
+            }});
+        });
+    </script>
+    
+</head>
+<body>
+
+    <!-- The value of scope option must be the same for purple boxes and purple area -->
+    <!-- The value of scope option must be the same for pink boxes and pink area -->
+
+    <div id="main">
+        <div id="item" class="item" style="background: pink;"></div>
+
+        <div id="item2" class="item2" style="background:black;"></div>
+
+    </div>
+
+
+    <div id="area" style="border: 5px solid purple;"></div>
+
+
+</body>
+</html>
