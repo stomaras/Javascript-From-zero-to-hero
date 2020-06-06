@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction: Droppable</title>
+    <style>
+        .item {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 5px;
+            padding: 5px;
+            background: purple;
+        }    
+
+        #area
+        {
+            width: 400px;
+            height: 500px;
+        }
+
+        #main, #area
+        {
+            float: left;
+            margin: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".item").draggable();
+            $("#item1").draggable({revert:"valid"});
+            $("#item2").draggable({revert:"invalid"});
+
+            $("#area").droppable({drop:function(){
+                alert("The item is dropped");
+            }});
+        });
+    </script>
+</head>
+<body>
+
+    <!--
+        We wll talk about the appearence of the droppable according to the draggable element those options are active class and 
+        hover class 
+        activeClass and hoverClass work only with accepted draggable elements!
+    -->
+
+    <div id="main">
+        <div id="item1" class="item" style="background: pink;"></div> 
+        <div id="item2" class="item" style="background: purple;"></div>
+    </div>
+    <div id="area" style="border: 5px solid black;"></div>
+</body>
+</html>
