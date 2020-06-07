@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate-Resizing</title>
+    <style>
+        #box1
+        {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background: purple;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#box1").resizable({animate:true, animateDuration:5000, animateEasing:"easeOutBounce"});
+        });
+    </script>
+</head>
+<body>
+    <!-- There are three option you can use the animate , animate duration and animate issing 
+         With the effect we can't see the effect instantly, but after some period of time
+         animateDuration is the animation in which the animation should get complete and the values you again set for animate duration 
+         are slow, fast or even a number in milliseconds 
+         the default value of animateDuration is slow actually
+         One more option is animateEasing and is the speed in which the animation should get completed.
+         for example linear means that will happen with the same speed from the start to end
+         One other is easeOutBounce, easeInOutBack
+         The value of animateEasing is swing by default!!!
+         More info in jquery website!
+    -->
+
+    <div id="box1" style=""></div>
+</body>
+</html>
