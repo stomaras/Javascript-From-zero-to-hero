@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction: Resizable</title>
+    <style>
+        #box
+        {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border: 1px solid black;
+            margin: 50px;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("div").resizable({handles:"ne, se, nw, sw", autoHide:true});
+        });
+    </script>
+</head>
+<body>
+    <!-- By default ypu can resize by right hand side bottom side and corner 
+         By using the option handiness you can decide where you should drag to resize 
+         your element the default values of the handle's option are s, e and se !
+         You of course need to note that there are different directions in order to 
+         set the values 
+         values: south ,east, west, north e.t.c
+         values : n, s, e, w, ne, se, nw, sw, all
+    -->
+    <div id="box">
+
+    </div>
+
+</body>
+</html>

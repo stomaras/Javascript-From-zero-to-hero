@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction: Resizable</title>
+    <style>
+        #box
+        {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border: 1px solid black;
+            margin: 50px;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("img, div").resizable();
+        });
+    </script>
+</head>
+<body>
+    
+    <img src="project-images/basket.jpg" width="150px" height="100px" />
+    <div id="box"></div>
+
+</body>
+</html>
