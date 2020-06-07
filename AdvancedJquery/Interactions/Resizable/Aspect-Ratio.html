@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintain Aspect Ratio</title>
+    <!-- If you want the aspect ratio to be the original aspect ratio the value should be true -->
+    <style>
+        #box1
+        {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 50px;
+            background: purple;
+        }
+
+        #box2
+        {
+            width: 100px;
+            height: 20px;
+            border: 1px solid black;
+            margin: 50px;
+            background: pink;
+        }
+    </style>
+    
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#box1").resizable({aspectRatio: true, stop:function(){
+                alert("Height: " + $(this).css("height") + "\n Width: " + $(this).css("width"))
+            }});
+            $("#box2").resizable({aspectRatio: 3, stop:function(){
+                alert("Height: " + $(this).css("height") + "\n Width: " + $(this).css("width"))
+            }});
+        });
+    </script>
+</head>
+<body>
+    <div id="box1" style=""></div>
+    <div id="box2" style="">Test Content!</div>
+</body>
+</html>
