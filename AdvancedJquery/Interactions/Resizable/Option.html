@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background: purple;
+            border: 1px solid black;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        #box2{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            border: 1px solid black;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        #box3{
+            width: 200px;
+            height: 200px;
+            background: black;
+            border: 1px solid black;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".box").resizable({ghost:true, cancel:"#box1"});
+            //$("#box1").resizable("option", "delay", 500);
+            //$("#box2").resizable("option", "distance", 200);
+            $("#box2").resizable("option", "disabled", true);
+            $("#box3").resizable("option", "grid", [150, 50]);
+        });
+    </script>
+</head>
+<body>
+    <div id="box1" class="box" style="background: purple;"></div>
+    <div id="box2" class="box" style="background: pink;"></div>
+    <div id="box3" class="box" style="background: black;"></div>
+
+</body>
+</html>
