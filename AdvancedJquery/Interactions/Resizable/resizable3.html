@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resizable Synchronous Resizing</title>
+    <style>
+        #box1
+        {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border: 1px solid black;
+            margin: 50px;
+        }
+        #box2
+        {
+            width: 100px;
+            height: 100px;
+            background: purple;
+            border: 1px solid black;
+            margin: 50px;
+        }
+    </style>
+    
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#box1").resizable({alsoResize:"#box2"});
+        });
+    </script>
+</head>
+<body>
+    <div id="box1" style="background: pink;"></div>
+    <div id="box2" style="background: purple;"></div>
+</body>
+</html>
