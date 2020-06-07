@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #main
+        {
+            border: 1px solid silver;
+            width: 500px;
+            height: 500px;
+            margin-top: 100px;
+            margin-left: 400px;
+
+        }
+        #box1
+        {
+            margin-top: 20px;
+            margin-left: 20px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        #box2
+        {
+            
+            margin-top: 20px;
+            margin-left: 20px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#box1").resizable({minHeight:50, containment:"#main"});
+            $("#box2").resizable({minHeight:120, maxHeight:270, minWidth:200, maxWidth:300});
+        });
+    </script>
+
+    <title>Restrict - Resizing</title>
+</head>
+<body>
+    <div id="main">
+        <div id="box1" style="background: silver;"></div>
+        <p id="box2" style="background: pink;">
+            Jason wuali  a prospect software engineer!!
+        </p>
+    </div>
+    
+</body>
+</html>
