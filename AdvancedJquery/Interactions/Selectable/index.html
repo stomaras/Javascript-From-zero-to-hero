@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction: Selectable</title>
+    <style>
+        ol
+        {
+            list-style-type: none;
+        }
+        li
+        {
+            height: 30px;
+            width: 150px;
+            border: 1px solid black;
+            background-color: pink;
+            margin: 2px;
+            font-size: 20px;
+            text-align: center;
+        }
+        #fruits .ui-selecting
+        {
+            border: 3px solid maroon;
+        }
+
+        #fruits .ui-selected
+        {
+            background: maroon;
+            color: white;
+            border: 1px solid black;
+        }
+        #hint
+        {
+            display: none;
+            position: absolute;
+            background: blue;
+            border: 5px solid gray;
+            border-radius: 5px;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#fruits").selectable({start:function(e){
+                $("#hint").css({
+                   display:"inline",
+                   left:e.pageX,
+                   top:e.pageY
+                }).fadeOut(3000);
+            },
+            selected(event, ui){
+               // alert($(ui.selected).text())
+            },
+            stop:function(){
+                $("#items").text("");
+                $(".ui-selected").each(function(key, value){
+                    $("#items").append(value.innerHTML + "<br />");
+                });
+            }});
+        });
+    </script>
+</head>
+<!-- JQuery UI Provides a class support to help us to differentiate between the selected items and unselected items
+     ui.selecting and ui.selected class to differentiate the selection process and also to differentiate the selected items from 
+     the not selected
+
+     filter:".yes" and cancel:".no" make the same thing
+     $(".no").selectable({disabled:true}); == all items with class name no will not be selectable
+-->
+
+<!--
+    .ui-selectable
+    .ui-selectee
+    .ui-selecting
+    .ui-selected
+    .ui-unselecting
+
+    Now suppose i want to make only some of the items selectable so i have added class names and ids for the items
+    now i will make only the items with class name yes selectable, so we will use the option filter
+-->
+
+<!--
+    Events that will be triggered at different stages of selection 
+    There are seven events that will triggered and they are 
+    1)create 
+    2)start - event : triggered at the start of the selection process 
+    3)stop 
+    4)selecting : triggered when we are being selecting the items
+    5)selected : will be triggered once the item is selected
+    6)unselecting 
+    7)unselected
+-->
+<body>
+    <ol id="fruits">
+        <li class="yes" id="mango">Mango</li>
+        <li class="no" id="apple">Apple</li>
+        <li class="no" id="strawberry">Straweberry</li>
+        <li class="yes" id="banana">Banana</li>
+        <li class="no" id="cherry">Cherry</li>
+        <li class="yes" id="papaya">Papaya</li>
+        <li class="yes" id="maorangengo">Orange</li>
+        <li class="no"  id="grapes">Grapes</li>
+    </ol>
+<div id="hint">To select multiple items, click ctrl and select or drag the lasso</div>
+<p><b>Items Selected: </b></p>
+<div id="items"></div>
+</body>
+</html>
