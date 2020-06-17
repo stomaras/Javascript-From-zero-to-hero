@@ -15,6 +15,13 @@
             background-color: pink;
             margin: 2px;
             font-size:20px;
+            text-align: center;
+        }
+        .myHolder
+        {
+            background: silver;
+            border: 3px solid black;
+            border-radius: 5px;
         }
     </style>
     <link rel="stylesheet" href="jquery-ui.css">
@@ -22,7 +29,7 @@
     <script src="jquery-ui.js"></script>
     <script>
         $(document).ready(function(){
-            $("#fruits").sortable();
+            $("#fruits").sortable({placeholder:"myHolder"});
         });
     </script>
 </head>
