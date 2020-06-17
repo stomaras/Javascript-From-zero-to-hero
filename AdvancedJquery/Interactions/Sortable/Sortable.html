@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction: Sortable</title>
+    <style>
+        ol{
+            list-style-type: none;
+        }
+        li{
+            height: 30px;
+            width: 150px;
+            border: 1px solid black;
+            background-color: pink;
+            margin: 2px;
+            font-size:20px;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#fruits").sortable();
+        });
+    </script>
+</head>
+<body>
+    <ol id="fruits">
+        <li  class="yes" id="mango">Mango</li>
+        <li  class="no" id="apple">Apple</li>
+        <li  class="no" id="strawberry">strawberry</li>
+        <li  class="yes" id="banana">Banana</li>
+        <li  class="no" id="cherry">Cherry</li>
+        <li  class="yes" id="papaya">Papaya</li>
+        <li  class="yes" id="orange">Orange</li>
+        <li  class="no" id="grapes">grapes</li>
+    </ol>
+    
+</body>
+</html>
