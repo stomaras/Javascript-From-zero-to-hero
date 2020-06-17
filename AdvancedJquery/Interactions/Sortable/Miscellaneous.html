@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        In this point in time i have seen 
+        1) axis - is used to set the direction of movement
+        2) containment - restrict the containment once we set the value of containment the item will not move outside
+        3) delay - 
+        4) distance -
+        5) cursor - style of cursor
+        6) cursorAt - set the position of the cursor 
+        7) grid - jumping effects  when we specify the value of grid in an array
+        8) helper - add a helper when we move 
+        9) opacity - transparent item
+        10) handle - the item is moved only if the user clicks on some particular point 
+        11) revert - is used to add a smooth animation when it moves to the new position
+        12) tolerance - we have 2 values intersect and pointer
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ol{
+            list-style-type: none;
+            width: 170px;
+            height: 480px;
+        }
+        li{
+            height: 30px;
+            width: 150px;
+            border: 1px solid black;
+            margin: 2px;
+            font-size:20px;
+            text-align: center;
+        }
+        #fruits li
+        {
+            background-color: pink;
+        }
+        #vegetables li 
+        {
+            background-color: silver;
+        }
+        fieldset{
+            float: left;
+            margin: 30px;
+            width: 200px;
+            height: 500px;
+            border: 5px solid black;
+        }
+        img{
+            float: right;
+            padding: 3px;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $("#fruits").sortable({handle:"img"});
+            //$("#fruits").sortable({cursor:"grab", cursorAt:{left:10, top:10}, grid:[10, 20]});
+            $("#vegetables").sortable({containment:"#right", cursor:"move", cursorAt:{bottom:10}});
+            /*
+            $("#fruits").sortable({helper:function(event, ui){
+                return $("<div style='background:blue;border:4px dotted white;font-size:20px;color:white;text-align:center;'>" + $(ui).text() + "</div>");
+            },opacity:.5});*/
+            $("#vegetables").sortable({revert:"fast"});// set numbers or slow and fast
+            
+        });
+    </script>
+</head>
+<body>
+    <!--
+        We will see the access option , we can set the value of access to be X or Y
+        X means horizontal move ,
+        Y means vertical move ,
+        axis is used to specify the direction of movement and containment is used to restrict 
+        the ability outside that container.
+    -->
+    <fieldset id="left">
+        <legend><b>FRUITS</b></legend>
+        <ol id="fruits">
+            <li  class="yes" id="mango">Mango<img src="img/circle.png" width="10px" height="10px" /></li>
+            <li  class="no" id="grapes">Grapes<img src="img/circle.png" width="10px" height="10px" /></li>
+            <li  class="yes" id="banana">Banana<img src="img/circle.png" width="10px" height="10px" /></li>
+            <li  class="no" id="strawberry">Strawberry<img src="img/circle.png" width="10px" height="10px" /></li>
+            <li  class="yes" id="apple">Apple<img src="img/circle.png" width="10px" height="10px" /></li>
+            <li  class="no" id="cherry">Cherry<img src="img/circle.png" width="10px" height="10px" /></li>
+            <li  class="yes" id="orange">Orange<img src="img/circle.png" width="10px" height="10px" /></li>
+        </ol>
+    </fieldset>
+    <fieldset id="right">
+        <legend><b>VEGETABLES</b></legend>
+        <ol id="vegetables">
+            <li  class="no" id="pumpkin">Pumpkin</li>
+            <li  class="no" id="broccoli">Broccoli</li>
+            <li  class="yes" id="capsicum">Capsicum</li>
+            <li  class="no" id="carrot">Carrot</li>
+            <li  class="no" id="potato">Potato</li>
+            <li  class="yes" id="tomato">Tomato</li>
+            <li  class="yes" id="brinjal">Brinjal</li>
+        </ol>
+    </fieldset>
+</body>
+</html>
