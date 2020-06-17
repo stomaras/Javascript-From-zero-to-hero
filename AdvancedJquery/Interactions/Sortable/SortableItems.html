@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction: Sortable</title>
+    <style>
+        ol{
+            list-style-type: none;
+            width: 170px;
+            height: 480px;
+        }
+        li{
+            height: 30px;
+            width: 150px;
+            border: 1px solid black;
+            margin: 2px;
+            font-size:20px;
+            text-align: center;
+        }
+        #fruits li
+        {
+            background-color: pink;
+        }
+        #vegetables li 
+        {
+            background-color: silver;
+        }
+        fieldset{
+            float: left;
+            margin: 30px;
+            width: 200px;
+            height: 500px;
+            border: 5px solid black;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        // Items are used to specify which items should be sortable
+        // cancel option will cancel the sortable ability to the specify item
+        // disable is used to disable the sort functionality on a list
+        $(document).ready(function(){
+            $("ol").sortable({items:".yes"});
+        });
+        
+    </script>
+</head>
+<body>
+    <fieldset id="left">
+        <legend><b>FRUITS</b></legend>
+        <ol id="fruits">
+            <li  class="yes" id="mango">Mango</li>
+            <li  class="no" id="grapes">Grapes</li>
+            <li  class="yes" id="banana">Banana</li>
+            <li  class="no" id="strawberry">Strawberry</li>
+            <li  class="yes" id="apple">Apple</li>
+            <li  class="no" id="cherry">Cherry</li>
+            <li  class="yes" id="orange">Orange</li>
+        </ol>
+    </fieldset>
+    <fieldset id="right">
+        <legend><b>VEGETABLES</b></legend>
+        <ol id="vegetables">
+            <li  class="no" id="pumpkin">Pumpkin</li>
+            <li  class="no" id="broccoli">Broccoli</li>
+            <li  class="yes" id="capsicum">Capsicum</li>
+            <li  class="no" id="carrot">Carrot</li>
+            <li  class="no" id="potato">Potato</li>
+            <li  class="yes" id="tomato">Tomato</li>
+            <li  class="yes" id="brinjal">Brinjal</li>
+        </ol>
+    </fieldset>
+</body>
+</html>
