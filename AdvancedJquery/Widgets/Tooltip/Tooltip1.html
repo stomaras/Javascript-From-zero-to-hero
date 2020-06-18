@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        if i add document then will add tooltip for all the elements that have 
+        title
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widgets-Tooltip</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("a, input").tooltip();
+        });
+    </script>
+</head>
+<body>
+    <p>Let's discuss <a href="#" title="Tooltips are unique!!!">tooltips</a> in detail</p>
+    Password:<input type="text" id="pass" title="Password must contain at least one number"/>
+</body>
+</html>
