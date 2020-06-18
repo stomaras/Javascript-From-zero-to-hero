@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget - Tooltip second use case</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(document).tooltip({hide:{effect:"explode", duration:5000, easing:"linear"}, show:{effect:"fold", duration:5000}});
+        })
+    </script>
+    <!--
+        We can animate the hiding and showing of tooltip using hide and show options
+        for hide and showing oprions you can have 4 types of values :
+        1) boolean true or false
+        2) string name of jQuery easing in this case for the tooltip
+        3) number duration in which animation should be completed in this case tooltip
+        4) object
+        $(document).tooltip({hide:"explode", show:"fold"});
+        by default value of hide and show are true
+        explode and fold are jQuery ui effect or jQuery animation method
+        The default value of effect in jQuery is fadeOut or fadeIn
+        if you set the value of hide and show as an object you can have effect, duration, easing and delay
+    -->
+</head>
+<body>
+
+    
+    <p>Let's discuss <a href="#" title="Tooltips are unique!!!">tooltips</a> in detail</p>
+    Password:<input type="text" id="pass" title="Password must contain at least one number"/>
+    
+</body>
+</html>
