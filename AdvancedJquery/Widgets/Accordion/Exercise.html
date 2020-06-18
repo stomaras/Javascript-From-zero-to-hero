@@ -13,32 +13,32 @@
         }
     </style>
     <!--
-        There are 4 options for the animate value 
-        1) boolean (false/true)
-        2) number - duration of the animation
-        3) string - name of the easing
-        4) object - you need to specify (duration , easing)
+        There are 3 events triggered in case of the accordion and they are create, before, activate 
+        1) create event gets triggered when accordion is created 
+        2) before event is triggered before a panel is activated 
+        3) activate event is triggered after the panel is activated
     -->
     <link rel="stylesheet" href="jquery-ui.css">
     <script src="jquery.js"></script>
     <script src="jquery-ui.js"></script>
     <script>
-        $(document).ready(function(){
-            $("#details").accordion({collapsible:true, active:true, animate:{duration:500 ,easing: "linear"}});
+        $(document).ready(function() {
+            ("#details").accordion();
         });
     </script>
     
 </head>
 <body>
     <div id="details">
-        <h2>jQuery</h2>
+        <h2>First</h2>
         <p>jQuery is a popular JavaScript library which simpifies JavaScript programming</p>
-        <h2>jQuery UI</h2>
+        <h2>Second</h2>
         <p>jQuery User Interface is built on the top of jQuery. It is useful to design highly interactive web applications</p>
-        <h2>jQuery Mobile</h2>
+        <h2>Third</h2>
         <p>jQuery Mobile is a HTML5-based user interface system designed to make responsive web sites
             and apps that are accesible on all smartphone, tablet and desktop devices
         </p>
+        
     </div>
 </body>
 </html>
