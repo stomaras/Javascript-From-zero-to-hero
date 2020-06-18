@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+    <style>
+        #details{
+            width: 450px;
+        }
+        p{
+            text-align: justify;
+        }
+    </style>
+    <!--
+        There are 4 options for the animate value 
+        1) boolean (false/true)
+        2) number - duration of the animation
+        3) string - name of the easing
+        4) object - you need to specify (duration , easing)
+    -->
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#details").accordion({icons:{"header":"ui-icon-plusthick", "activeHeader":"ui-icon-minusthick"}});
+        });
+    </script>
+    
+</head>
+<body>
+    <div id="details">
+        <h2>jQuery</h2>
+        <p>jQuery is a popular JavaScript library which simpifies JavaScript programming</p>
+        <h2>jQuery UI</h2>
+        <p>jQuery User Interface is built on the top of jQuery. It is useful to design highly interactive web applications</p>
+        <h2>jQuery Mobile</h2>
+        <p>jQuery Mobile is a HTML5-based user interface system designed to make responsive web sites
+            and apps that are accesible on all smartphone, tablet and desktop devices
+        </p>
+    </div>
+</body>
+</html>
