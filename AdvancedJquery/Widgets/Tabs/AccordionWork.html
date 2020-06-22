@@ -20,10 +20,8 @@
                 var content = $("#form #content").val();
                 var newAccordion = '<h2>' + header + '</h2>' + '<p>' + content + '</p>';
                 $("#details").append(newAccordion).accordion("refresh");
+                $("#details").accordion({active:-1});
             });
-
-            $()
-
 		});
 	</script>
 </head>
