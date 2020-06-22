@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Widget: Tabs</title>
+	<style>
+		#details
+		{
+			width:600px;
+			margin:15px;
+		}
+	</style>
+	<link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>    
+    <script src="jquery-ui.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#details").accordion();
+            $("#submitBtn").click(function(){
+                var header = $("#form #header").val();
+                var content = $("#form #content").val();
+                var newAccordion = '<h2>' + header + '</h2>' + '<p>' + content + '</p>';
+                $("#details").append(newAccordion).accordion("refresh");
+            });
+
+            $()
+
+		});
+	</script>
+</head>
+<body>
+	<div id="details">
+    
+        <h2>First</h2>
+        <p>jQuery is a popular JavaScript library which simplifies JS programming</p>
+        <h2>Second</h2>
+        <p>jQuery User Interface is built on the top of jQuery. It is useful to design highly interactive 
+            eb applications.
+        </p>
+        <h2>Third</h2>
+        <p>tom come on</p>
+    </div>
+    <br><br>
+    <form id="form">
+        <label for="header">Header:</label>
+        <input type="text" id="header" name="header">
+        <br><br>
+        <label for="content">Content:</label>
+        <input type="text" id="content" name="content">
+        <br><br>
+        <button type="button" id="submitBtn">Add Accordion</button>
+    </form>
+    
+	
+</body>
+</html>

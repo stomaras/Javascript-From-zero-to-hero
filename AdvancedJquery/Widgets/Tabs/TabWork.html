@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Widget: Tabs</title>
+	<style>
+		#details
+		{
+			width:600px;
+			margin:15px;
+		}
+	</style>
+	<link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>    
+    <script src="jquery-ui.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#details").tabs();
+			$("#tabIndex").change(function() {
+				$("#details").tabs({active: $("#tabIndex").val()});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="details">
+		<ul>
+			<li><a href="#first">FIRST</a></li>
+			<li><a href="#second">SECOND</a></li>
+			<li><a href="#third">THIRD</a></li>
+			<li><a href="#fourth">FOURTH</a></li>
+			<li><a href="#fifth">FIFTH</a></li>
+		</ul>
+		<p id="first">This is the content related to FIRST tab.</p>
+		<p id="second">This is the content related to SECOND tab.</p>
+		<p id="third">This is the content related to THIRD tab.</p>
+		<p id="fourth">This is the content related to FOURTH tab.</p>
+		<p id="fifth">This is the content related to FIFTH tab.</p>
+	</div>
+	<label for="tabIndex">Select the tab to activate: </label>
+	<select id="tabIndex">
+		<option value="0">FIRST</option>
+		<option value="1">SECOND</option>
+		<option value="2">THIRD</option>
+		<option value="3">FOURTH</option>
+		<option value="4">FIFTH</option>
+	</select>
+</body>
+</html>
