@@ -8,17 +8,43 @@
     <script src="jquery.js"></script>
     <script src="jquery-ui.js"></script>
     <script>
-        var currency = [
-            {label:"Angola", value:"Angolan kwanza"},
-            {label:"Cambodia", value:"Cambodian riel"},
-            {label:"Germany", value:"European euro"},
-            {label:"Nepal", value:"Nepalese rupee"},
-            {label:"Greece", value:"European euro"},
-            {label:"Albania", value:"Albanian lek"}        
-            
+         var countries = [
+            "Angola",
+            "Cambodia",
+            "Germany",
+            "Nepal",
+            "Greece",
+            "Albania",            
+            "England",
+            "USA",            
+            "Mexico",
+            "Tokyo",
+            "Sweden",
+            "Malaysia",
+            "India",
         ];
         $(document).ready(function(){
-            $("#countries").autocomplete({source:currency});
+            $("#countries").autocomplete({source: function(request, response){
+                // Filter the results based on the first character
+                // request has only one property that is term which will return the value 
+                // entered by the user input area
+                // and the response will be the response that will be returned.
+                // map function is a javascript function as well as a jQuery function, which return a
+                // new array, element will be each item in the array 
+                // indexOf is a method in order to find the index which always start with 0
+                // request.term means will be the value entered by the user.
+                var filterArray = $.map(countries, function(element){
+                    if(element.toUpperCase().indexOf(request.term.toUpperCase()) == 0)
+                    {
+                        return element;
+                    }
+                    else 
+                    {
+                        return null;
+                    }
+                });
+                response(filterArray);
+            }});
         });
     </script>
     
@@ -27,6 +53,9 @@
 <!--
     How to set an array of objects as the source of text
     countries and corresponding currencies
+    We set the source as the call back function. The callback function actually gets two arguments 
+    They are request and response and the request will have only one property that is term and the term will be the value entered
+    in the text box or the input element.
 -->
 <body>
     <label for="countries">Countries:</label>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget: Autocomplete 3 example</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        var currency = [
+            {label:"Angola", value:"Angolan kwanza"},
+            {label:"Cambodia", value:"Cambodian riel"},
+            {label:"Germany", value:"European euro"},
+            {label:"Nepal", value:"Nepalese rupee"},
+            {label:"Greece", value:"European euro"},
+            {label:"Albania", value:"Albanian lek"}        
+            
+        ];
+        $(document).ready(function(){
+            $("#countries").autocomplete({source:currency});
+        });
+    </script>
+</head>
+<body>
+    <!--
+        Set a callback function as the source of autocomplete widget
+    -->
+    <label for="countries">Countries:</label>
+    <input id="countries" type="text" />
+</body>
+</html>
