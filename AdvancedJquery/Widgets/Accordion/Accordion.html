@@ -21,15 +21,12 @@
             $("#btnAdd").click(function(){
                 var header = $("#header").val();
                 var content = $("#content").val();
-                console.log(header);
-                console.log(content);
                 var newDiv = "<h2>" + header + "</h2>" + "<p>" + content + "</p>";
                 $("#details").append(newDiv).accordion("refresh");
                 $("#details").accordion({active:-1});
-            })
+            }) 
         });
     </script>
-    
 </head>
 <body>
     <div id="details">
@@ -51,6 +48,5 @@
     <label for="header">Header: </label> <input type="text" id="header"/><br/><br/>
     <label for="content">Content: </label> <textarea  id="content"></textarea><br/><br/>
     <button id="btnAdd">Add Accordion</button>
-    
 </body>
 </html>

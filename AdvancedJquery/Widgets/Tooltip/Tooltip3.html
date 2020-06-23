@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget-Tooltip 3</title>
+    <!--
+        In this file we will see two different options that can be used to position the tooltip as we want 
+        So as now by default when we move the mouse over the tooltip is getting displayed like this.
+        That is below the item
+        If we want the tooltip to follow the mouse and change the position accordingly to the mouse , you should use 
+        the option track and set its value to true
+    -->
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(document).tooltip({track:true});
+        });
+    </script>
+</head>
+<body>
+
+    <p>Let's discuss <a href="#" title="Tooltips are unique!!!">tooltips</a> in detail</p>
+    Password:<input type="text" id="pass" title="Password must contain at least one number"/>
+
+</body>
+</html>
