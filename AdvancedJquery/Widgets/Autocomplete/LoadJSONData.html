@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load JSON Data</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothn">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var jsonData = '{"120":"John Smith","122":"Sarah Turner","124":"Mark Zuckenberg"}';
+            var jsObject = JSON.parse(jsonData);
+            $("#names").autocomplete({source:function(request, response){
+                var filterArray = $.map(jsObject, function(item, index){
+                    if(item.toUpperCase().indexOf(request.term.toUpperCase()) != -1)
+                    {    
+                        return{
+                            label:item,
+                            value:item
+                        };
+                    }
+                });
+                response(filterArray);
+            }});
+        });
+    </script>
+</head>
+<body>
+    <!--
+        In this lecture we will see how to load json data into our autocomplete widget
+        JSON is a very popular data in the change format and you might have to load it in your 
+        autocomplete widget if you are using some API.
+        In real world scenario you get the data as a json string , this is the reason i put the jsonData into 
+        single quotes. Then i use JSON.parse method to convert into a javascript object.
+        reuest will be having one property thta is term the value that we entered inside the textbox
+        indexOf is a key-sensitive , so i use toUpperCase() method.
+        label is the value to be displayed in the suggestion list
+        value is the value that be displayed in the textbox
+        request.term give us value entered in the textbox
+    -->
+
+    <label for="names">Names:</label>
+    <input id="names" type="text" />
+    
+</body>
+</html>
