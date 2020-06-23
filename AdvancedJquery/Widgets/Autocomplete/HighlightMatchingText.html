@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlighting Matching Text</title>
+    
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        var country = [
+            "Angola", "Cambodia",
+            "Germany", "Kuwait",
+            "Nepal", "Switzerland",
+            "Zimbabowe","United Kingdom",
+            "Sweden","Phillipines"
+        ];
+        //.data("ui-autocomplete") , means that will retrieve instance of autocomplete widget 
+        // ui-autocomplete is the key 
+        $(document).ready(function(){
+            $("#countries").autocomplete({source:country})
+            .data("ui-autocomplete")._renderItem = function(ul, item){
+                var expression = new RegExp(this.term, "gi");// case insensitive search
+                var result = expression.exec(item.label);
+                var answer;
+                if(result.index == 0)
+                {
+                    var first = item.label.charAt(0);
+                    var remaining = item.label.slice(1, item.label.length);
+                    var first1 = first.replace(expression, "<span style='font-weight:bold;color:red'>" + this.term.toUpperCase() + "</span>");
+                    var remaining = remaining.replace(expression, "<span style='font-weight:bold;color:red'>" + this.term.toLowerCase() + "</span>")
+                    answer = first1 + remaining1;
+                }
+                else {
+                    answer = item.label.replace(expression, "<span style='font-weight:bold;color:red'>" + this.term.toLowerCase() + "</span>");
+                }
+                return $("<li></li>")
+                        .append("<a>" + answer + "</a>")
+                        .appendTo(ul);
+            };
+        });
+    </script>
+</head>
+<body>
+    
+    <label for="countries">Countries:</label>
+    <input id="countries" type="text" />
+    
+</body>
+</html>

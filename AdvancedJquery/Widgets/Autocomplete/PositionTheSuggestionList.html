@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget: Autocomplete</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+
+         var countries = [
+            "Angola",
+            "Algeria",
+            "Kazahstan",
+            "Cambodia",
+            "Germany",
+            "Nepal",
+            "Greece",
+            "Albania",            
+            "England",
+            "USA",            
+            "Mexico",
+            "Tokyo",
+            "Sweden",
+            "Malaysia",
+            "India",
+        ];
+
+        $(document).ready(function(){
+            $("#country").autocomplete({source: countries, position:{my:"left top", collision:"fit"}});
+        });
+
+    </script>
+
+    
+
+</head>
+
+<body>
+    <label for="country">Countries:</label>
+    <input id="country" type="text" />
+
+</body>
+</html>
