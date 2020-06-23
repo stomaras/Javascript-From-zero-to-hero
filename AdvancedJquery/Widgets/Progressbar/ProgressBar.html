@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #bar1{
+            width: 100px;
+            height: 10px;
+        }
+        #bar2{
+            width: 100px;
+            height: 10px;
+        }
+        #bar1, #bar2
+        {
+            margin-bottom: 100px;
+        }
+    </style>
+    <title>Widget: Progress Bar</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#bar1").progressbar({value:10, max:50});
+            $("#bar2").progressbar({value:false});
+        });
+        
+    </script>
+</head>
+<body>
+    <div id="bar1"></div>
+    <div id="bar2"></div>
+    
+</body>
+</html>
