@@ -3,35 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        #bar1{
-            width: 100px;
-            height: 10px;
-        }
-        #bar2{
-            width: 100px;
-            height: 10px;
-        }
-        #bar1, #bar2
-        {
-            margin-bottom: 100px;
-        }
-    </style>
+    
     <title>Widget: Progress Bar</title>
     <link rel="stylesheet" href="jquery-ui.css">
     <script src="jquery.js"></script>
     <script src="jquery-ui.js"></script>
+    <style>
+        #bar1{
+            width: 150px;
+            height: 20px;
+        }
+        .ui-progressbar
+        {
+            
+            border-radius: 25px;
+        }
+        .ui-progressbar-value
+        {
+            background: limegreen;
+            border-radius: 25px;
+            text-align: right;
+            color: black;
+            font-weight: 50;
+            
+        }
+        #maximum
+        {
+            float: right;
+            margin-right: 2px;
+        }
+    </style>
     <script>
         $(document).ready(function(){
-            $("#bar1").progressbar({value:10, max:50});
-            $("#bar2").progressbar({value:false});
+            var newValue;
+            $("#bar1").progressbar({value:10, max:100});
+            var maximum = $("#bar1").progressbar("option","max");
+            $("#maximum").text(maximum + "%");
+            var current = $("#bar1").progressbar("option", "value");
+            $(".ui-progressbar-value").text(current + "%");
+            $("button").click(function(){
+                current = $("#bar1").progressbar("option", "value");
+                var id = $(this).attr("id");
+                if(id == "btnIncrement" && current!=100)
+                {
+                    newValue = current + 10;
+                    console.log(newValue);
+                }
+                else 
+                {
+                    newValue = current - 10;
+                }
+                displayValue();
+            });
+
+            function displayValue()
+            {
+                $("#bar1").progressbar("value", newValue);
+                if(newValue == maximum)
+                {
+                    $(".ui-progressbar-value").text("");
+                }
+                else 
+                {
+                    $(".ui-progressbar-value").text(newValue + "%");
+                }
+                
+            }
         });
         
     </script>
 </head>
 <body>
-    <div id="bar1"></div>
-    <div id="bar2"></div>
+    <div id="bar1"><span id="maximum"></span></div>
+    <button id="btnIncrement">+ 10%</button>
+    <button id="btnDecrement">- 10%</button>
+    
     
 </body>
 </html>
