@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create 2 Dialogs </title>
+    
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".dialogs:eq(1)").dialog({title:"My Dialog", position:{at:"left top"}});
+            $(".dialogs:eq(0)").dialog({title:"Your Dialog", position:{at:"right bottom"}});
+        });
+    </script>
+    
+        
+</head>
+<body>
+    <div class="dialogs">
+        <p>This is your dialog.</p>
+    </div>
+    <div class="dialogs">
+        <p>This is my dialog.</p>
+    </div>
+    
+
+    
+</body>
+</html>
