@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widgets : Datepicker - Make Specific Dates Non - Selectable</title>
+
+    
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var holidays = ["1-9-2020","25-12-2020","1-1-2021"];
+            $("#calendar").datepicker({beforeShowDay: function(date){ // date object returns the month starting from 0
+                // this function will be called for each day before the datepicker is displayed.
+                var d = date.getDate();
+                var m = date.getMonth();
+                var y = date.getFullYear();
+                var nonSelectableDate = d + "-" + (m+1) + "-" + y;
+                for(var i=0; i<holidays.length;i++)
+                {
+                    if ($.inArray(nonSelectableDate, holidays) != -1)
+                    {
+                        return [false];
+                    }
+                    return [true];
+                }
+                    /*var day = date.getDay();
+                    if(day == 5)
+                    {
+                        return [false];
+                    }
+                    else
+                    {
+                        return [true];
+                    }*/
+
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    Date of Apointment: <input id="calendar" type="text" />
+    
+</body>
+</html>
