@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog: Size</title>
+    <style>
+        #attach
+        {
+            width: 400px;
+            height: 400px;
+            border: 5px solid black;
+        }
+    </style>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#overlay").dialog({height:200, width:200, position:{of:"#attach"}});
+        });
+    </script>
+</head>
+<body>
+    <div id="overlay" title="First Dialog">
+        <div>This is tom dialog it's time to become pro player</div>
+    </div>
+    <div id="attach">Attach</div>
+    
+</body>
+</html>
