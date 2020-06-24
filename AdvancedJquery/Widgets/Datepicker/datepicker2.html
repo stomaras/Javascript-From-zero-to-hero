@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Picker</title>
+    
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#calendar").datepicker({
+                beforeShowDay: function(date){// in order to make weekends non-selectable i use beforeShowDay
+                    var weekEnds = $.datepicker.noWeekends(date);// in order to make weenends non-selectable noWeekends is a utility function
+                    var weekDays = [!weekEnds[0]];
+                    return weekDays;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    Date of Appointment: <input id="calendar" type="text" />
+
+    
+</body>
+</html>
