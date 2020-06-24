@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Buttons to the Dialog</title>
+    
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#overlay").dialog({buttons:[{
+                                                text:"Cancel",
+                                                icons:{primary:"ui-icon-close"},
+                                                click:function(){$(this).dialog("close");}
+                                            },
+
+                                            {
+                                                text:"Delete",
+                                                icons:{primary:"ui-icon-check"},
+                                                click:function(){alert("All the items are deleted");}
+                                            }
+                                           ]
+                                });
+        });
+    </script>
+
+</head>
+<body>
+
+    <div id="overlay" title="Confirmation">
+        <div>Are you sure you want to delete the items permanently? You cannot undo this operation</div>
+    </div>
+    
+</body>
+</html>

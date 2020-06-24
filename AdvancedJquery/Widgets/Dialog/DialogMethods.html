@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog: Different methods</title>
+    
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#first").dialog({position:{at:"center top"}});
+            $("#second").dialog({position:{at:"center center"}, autoOpen:false});
+            $("#toggle").click(function(){
+                if($("#first").dialog("isOpen"))
+                {
+                    $("#first").dialog("close");
+                }
+                else
+                {
+                    $("#first").dialog("open");
+                }
+                
+                if($("#second").dialog("isOpen"))
+                {
+                    $("#second").dialog("close");
+                }
+                else
+                {
+                    $("#second").dialog("open");
+                }
+            });
+
+
+            $("#top").click(function(){
+                $("#first").dialog("moveToTop");
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <button id="top">Move To Top</button>
+    <button id="toggle">Toggle</button>
+    <div class="overlay" id="first" title="First Dialog">
+        <div>
+            This is the first Dialog 
+        </div>
+    </div>
+    
+    <div class="overlay" id="second" title="Second Dialog">
+        <div>
+            This is the second dialog
+        </div>
+    </div>
+</body>
+</html>
