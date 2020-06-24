@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default Functionalities</title>
+    
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#overlay").dialog({draggable:false, resizable:false, closeOnEscape:false});
+        });
+    </script>
+</head>
+<body>
+    <div id="overlay" title="first dialog">
+        <div>
+            This is the first dialog that displays content in an interactive overlay!!!
+        </div>
+    </div>
+    
+</body>
+</html>
