@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widgets : Datepicker - Make Specific Dates Non - Selectable</title>
+
+    
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <style>
+        .styleholiday .ui-state-default
+        {
+            color: red;
+            background: black;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            var holidays = ["01-09-2020","02-09-2020","03-09-2020","04-09-2020","05-09-2020","25-12-2020","01-01-2021"];
+            $("#calendar").datepicker({beforeShowDay: function(date){ // date object returns the month starting from 0
+                // this function will be called for each day before the datepicker is displayed.
+                /*var d = date.getDate();
+                var m = date.getMonth();
+                var y = date.getFullYear();
+                var nonSelectableDate = d + "-" + (m+1) + "-" + y;*/
+                var nonSelectableDate = $.datepicker.formatDate("dd-mm-yy", date);// the above 4 lines of code can replace by this one if we use the formatDate Utility function.
+                for(var i=0; i<holidays.length;i++)
+                {
+                    if ($.inArray(nonSelectableDate, holidays) != -1)
+                    {
+                        return [false, "styleholiday"];
+                    }
+                    return [true];
+                }
+                    /*var day = date.getDay();
+                    if(day == 5)
+                    {
+                        return [false];
+                    }
+                    else
+                    {
+                        return [true];
+                    }*/
+
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    Date of Apointment: <input id="calendar" type="text" />
+    
+</body>
+</html>
