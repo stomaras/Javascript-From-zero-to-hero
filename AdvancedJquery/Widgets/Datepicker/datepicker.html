@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Picker</title>
+    
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#calendar").datepicker({minDate:new Date(), maxDate:"3m"});
+        });
+    </script>
+</head>
+<body>
+    Date of Appointment: <input id="calendar" type="text" />
+
+    
+</body>
+</html>
