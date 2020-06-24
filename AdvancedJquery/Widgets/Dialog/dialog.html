@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget: Dialog</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#overlay").dialog({hide:{effect:"pulsate", easing:"swing", duration:500}, show:{effect:"fold",duration:1000}});
+        });
+    </script>
+</head>
+<body>
+    <div id="overlay" title="First Dialog">
+        <div>
+            This is the first dialog that displays content in an interactive overlay
+        </div>
+    </div>
+</body>
+</html>
