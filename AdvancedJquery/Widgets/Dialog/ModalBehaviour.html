@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Behaviour</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#overlay").dialog({modal:true});
+            $("#btnSubmit").click(function(){
+                alert(" Hi " + $("#first").val() + " " + $("#last").val())
+            });
+        });
+    </script>
+</head>
+<body>
+    First Name: <input id="first" type="text" /><br />
+    Last Name: <input id="last" type="text" /><br />
+    <button id="btnSubmit">Submit</button>
+    <div id="overlay" title="First Dialog">
+        <div>
+            This is the first time in the history of world that...
+        </div>
+    </div>
+</body>
+</html>
