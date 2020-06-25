@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage JSON</title>
+</head>
+<body>
+    <!--
+        We are going to saving some json data as string into the session storage 
+        and then picking that information back up and outputting it into our web application
+        and we are going to also be parsing that json on string and putting it into a readable format.
+
+        The idea is that once we submit the form then we are going to save it into the session storage
+        and we are going to turn it to json format and that's what we are going to save a string of field 
+        version of it. We are going to pull that string of field version out whenever the page loads and then 
+        output that content.
+    -->
+    <div id="output"></div>
+    <form id="myForm">
+        <input type="text" name="first" value="Laurence"><br>
+        <input type="text" name="last" value="Svekis"><br>
+        <input type="text" name="company" value="Discoveryvip"><br>
+
+        <input type="submit" value="submit">
+    </form>
+
+    <script type="text/javascript">
+        var myForm = document.getElementById('myForm');
+
+        // whenever the window loads we fire off a function  
+        window.onload = function(){
+            if(sessionStorage['person']!=null){
+                var data = JSON.parse(sessionStorage['person']);
+                var message = 'Welcome '+ data.first +''+ data.last +' to the site!!!';
+                document.getElementById('output').innerHTML = message;
+                console.log(data);
+            }
+
+        }
+        //console.log(myForm);
+        myForm.addEventListener('submit',function(e){
+            e.preventDefault();// we prevent to move on other page we stay on the current .
+            var data = formData(myForm);
+            if(data){
+                sessionStorage['person']=JSON.stringify(data);
+            }
+            console.log(data);
+        });
+
+        function formData(form){
+            var el = form.querySelectorAll('input[type="text"]');
+            var myData = {};
+            for(var x=0; x<el.length; x++){
+                var name = el[x].name;
+                var value = el[x].value;
+                console.log(name,value);
+                myData[name] = value;
+            }
+            return el;
+        }
+    </script>
+    <!--
+        In the next stage we are gonna submitting this as a session variable as just ones variable 
+        so we don't have different values for each one of these form inputs. We can have it all in 
+        one chunk which offer us a lot of flexibility in our form as possible.
+
+        Now we need to strinify this so that we can store it into our session storage. There's a number
+        of places that we can do this. We can do it within this event listener. We can do it within 
+        the form data. We just keep the formData as it is because what this is doing is a useful function
+        that we can use in a number of other applications so we can reuse this type of functionality
+        where we are returning back our form information. So esssentially returning it back as a data 
+        object we can make use of it.
+
+        Whenever the page is load we want to pull that information out of our session storage.
+    -->
+</body>
+</html>
