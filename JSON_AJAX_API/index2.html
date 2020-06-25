@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h1>Learn JSON</h1>
+    <div id="output"></div>
+    <script type="text/javascript">
+
+         var myObj = {
+             "friends":[{
+                 "firstName":"Mike",
+                 "lastName":"Jones"
+             },{
+                 "firstName":"John",
+                 "lastName":"Jones"
+             },{
+                 "firstName":"Spyros",
+                 "lastName":"Tomaras"
+             },{
+                 "firstName":"Chris",
+                 "lastName":"Kanoulas"
+             }]
+         }
+
+        
+         
+         var html = "";
+
+         myObj.friends.splice(4,0,{
+             "firstName":"Vasilis",
+             "lastName":"oikonomidis"
+         })
+
+
+         var output = document.getElementById('output');
+         
+         for(x=0;x<myObj.friends.length;x++){
+             html += 
+                 (Number(x) + 1) + '.' + 
+                  myObj.friends[x].firstName + ' ' + 
+                  myObj.friends[x].lastName + '<br>'
+            
+             
+         }
+         
+         output.innerHTML = html;
+         myObj.friends.forEach(function(item){
+            output.innerHTML += item.firstName + ' ' + 
+                item.lastName + '<br>'
+         })
+         
+        
+         output.innerHTML = html;
+
+
+    </script>
+
+    </body>
+</html>
