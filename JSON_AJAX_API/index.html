@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h1>Learn JSON</h1>
+    <div id="output"></div>
+    <script type="text/javascript">
+        var people = 
+        {
+            "person1": {
+                     "firstName":"John",
+                     "lastName":"TOM",
+                     "age":25,
+                     "checkedin":true
+            },
+            "person2": {
+                     "firstName":"Spyros",
+                     "lastName":"Tomaras",
+                     "age":22,
+                     "checkedin":true
+            }
+         };
+         var myObj = {
+             "friends":[{
+                 "firstName":"Mike",
+                 "lastName":"Jones"
+             },{
+                 "firstName":"John",
+                 "lastName":"Jones"
+             },{
+                 "firstName":"Spyros",
+                 "lastName":"Tomaras"
+             },{
+                 "firstName":"Chris",
+                 "lastName":"Kanoulas"
+             }]
+         }
+
+         var users = myObj.friends;
+         var html = "";
+         for(var x in users){
+             html += ( (Number(x)+1) + '.' + users[x].firstName + ' ' + users[x].lastName + '<br>' );
+         }
+         document.getElementById('output').innerHTML = html;
+        
+    </script>
+</body>
+</html>
