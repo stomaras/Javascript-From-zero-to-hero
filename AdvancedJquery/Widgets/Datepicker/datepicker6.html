@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DatePicker</title>
+    
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <!--<script src="ar.js"></script>
+    <script src="fr.js"></script>-->
+    <script>
+        $(document).ready(function(){
+            /*$("#calendar1").datepicker($.datepicker.regional["ar"]);
+            $("#calendar2").datepicker($.datepicker.regional["fr"]);*/
+            $("#calendar").datepicker({
+                                       /*monthNamesShort:["JA","FE","MA","AP","MAY","JU","JUL","AU","SE","OC","NOV","DEC"],
+                                       monthNames:["JANU","FEBR","MARC","APRI","MAYMAY","JUNE","JULY","AUGUST","SEPTEMBER"],
+                                       dayNames:["Sun","Mon","Tues","Wednes","Thurs","Fri","Satur"],
+                                       dayNamesMin:["nja","thi","cho","bud","vya","vel","san"],
+                                       dayNamesShort:["Su","M","Tu","W","Th","F","SA"]
+                                       firstDay:5,//change the day from which week will start
+                                       isRTL:true// starts from right to left
+                                       showWeek:true,//number of the week
+                                       weekHeader:"W no:"// in order to see the effect of weekHeader, must showWeek to be true
+                                       yearSuffix:"AD"*/
+                                       showButtonPanel:true,
+                                       currentText:"Now",
+                                       closeText:"Close",
+                                       gotoCurrent:true
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <!--Date of Apointment: <input id="calendar1" type="text" />
+    <input id="calendar2" type="text" />-->
+    Date of Apointment: <input id="calendar" type="text" />
+</body>
+</html>
