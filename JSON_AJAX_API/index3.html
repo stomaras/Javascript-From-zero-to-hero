@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON on the Web</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script text="text/javascript">
+    
+    // there is a really good way to transform a string that is json formatted , so json valid string
+    // into a usable javascript object ,there is one method to do that 
+    // So basically this is the method that parses chase on transforming the value as it parses through it
+    // into a usable javascript object format. I really easy and magiacally can transform it 
+    //https://jsonschema.net/home
+
+    // NOTE !!! in order to use JSON.parse(data) , the variable data must be valid json data
+    // in other case run into some problems.
+    var html = '';
+    var data = '{"results":[{"gender":"male","name":{"title":"Mr","first":"Isaac","last":"Flaaten"},"location":{"street":{"number":6115,"name":"Kaiekroken"},"city":"Ørsta","state":"Hedmark","country":"Norway","postcode":"0550","coordinates":{"latitude":"51.5762","longitude":"-82.5154"},"timezone":{"offset":"+3:30","description":"Tehran"}},"email":"isaac.flaaten@example.com","login":{"uuid":"63996f4a-decd-4803-9bfc-77adc9a4dff4","username":"yellowrabbit549","password":"phat","salt":"24V3Gbn2","md5":"e76f433aa68a228c6794bb5a6d5c4dc5","sha1":"658007484255678b56e361bf945127fd1b130c28","sha256":"1b44978fbf33ce6225e0e35ffb09ab4ea7e5862d27742baa1b8589048643d7f5"},"dob":{"date":"1968-10-09T16:55:07.164Z","age":52},"registered":{"date":"2013-06-18T07:56:23.436Z","age":7},"phone":"75628992","cell":"99966149","id":{"name":"FN","value":"09106835133"},"picture":{"large":"https://randomuser.me/api/portraits/men/86.jpg","medium":"https://randomuser.me/api/portraits/med/men/86.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/86.jpg"},"nat":"NO"}],"info":{"seed":"9c6c7049fad484d1","results":1,"page":1,"version":"1.3"}}';
+    var dataJSON = JSON.parse(data);
+    var person = dataJSON.results[0];
+    console.log(person.gender);
+    html = '' + person.name.first + ' ' + person.name.last 
+    html +=  '<img src="+person.picture.thumbnail+">'; 
+    var output = document.getElementById('output');
+    output.innerHTML = html;
+
+    // convert from json object to string with one method the stringify which converts a value into a 
+    // string value. So basically what hold json object can fit into one variable
+    var strMe = JSON.stringify(dataJSON);
+    console.log(strMe);
+
+
+    console.log(dataJSON);  
+    </script>
+    
+</body>
+</html>
