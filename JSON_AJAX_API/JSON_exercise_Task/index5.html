@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Exercise</title>
+</head>
+<body>
+    <h1>Learn JSON</h1>
+    <div id="output">
+        <ul id="taskList"></ul>
+    </div>
+        <script type="text/javascript">
+            /* We are going to use JSON within Javascript
+               JSON Validator: https://jsonlint.com  
+               
+            */
+            var data = '{"tasks":{"Cut Grass":false,"Clean Room":false,"Go to Gym":true,"Make Dinner":false}}';
+            var dataJSON = JSON.parse(data);// we convert data to JSON format
+
+            var output = document.getElementById('output');
+            var taskList = document.querySelector('#taskList');
+
+            //console.log(output);
+            //console.log(taskList);
+
+            for(var key in dataJSON.tasks){
+                console.log(key, dataJSON.tasks[key])
+                var status = !dataJSON.tasks[key]?'':'checked';
+                var html = '<li>'+key+'<input type="checkbox" value="'+key+'" '+status+'></li>';
+                taskList.innerHTML += html;
+            }
+
+            // i can't add an event listener until i add some html, so the same thing is until 
+            // your DOM is loaded you can't actually access those elements.
+            // we grab them an add the eventListener onChange only when we have create them.
+
+            // I will create a function which will grab over the elements and add an eventListener on them
+            addEvents();
+            function addEvents(){
+                var checkboxes = document.querySelectorAll('#taskList input[type="checkbox"]');
+                console.log(checkboxes);
+                for(var index in checkboxes){
+                    checkboxes[index].onchange = updateJSON;//question about the asynchronus way here
+                }
+                console.log(checkboxes);
+            }
+
+            function updateJSON(){
+                var key = event.target.value;//in javascript if you want to take whatever triggered from the event you can do event.target
+                console.log(key,event.target.checked);
+                dataJSON.tasks[key] = event.target.checked;
+                
+            }
+        </script>
+</body>
+</html>
+
+
+
+
