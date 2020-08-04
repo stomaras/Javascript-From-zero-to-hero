@@ -15,7 +15,35 @@
                JSON Validator: https://jsonlint.com  
                
             */
-            var data = '{"tasks":{"Cut Grass":false,"Clean Room":false,"Go to Gym":true,"Make Dinner":false}}';
+            var data = '[{"info":"Cut Grass","status":false},{"info":"Clean Room","status":true},{"info":"Make Dinner","status":false}]';
+            var dataJSON = JSON.parse(data);
+            var output = document.getElementById('output');
+            var taskList = document.querySelector("#taskList");
+            for(var key in dataJSON){
+                console.log(key, dataJSON[key])
+                var status = dataJSON[key].status?'checked':'';
+                var html = "<li>"+dataJSON[key].info+'<input type="checkbox" value="'+key+'" '+status+'></li>';
+                taskList.innerHTML +=html;
+            }
+
+            addEvents();
+            function addEvents(){
+                var checkboxes = document.querySelectorAll('#taskList input[type="checkbox"]');
+                console.log(checkboxes);
+                for(var index in checkboxes){
+                    checkboxes[index].onchange = updateJSON;//question about the asynchronus way here
+                }
+                console.log(checkboxes);
+            }
+
+            function updateJSON(){
+                var key = event.target.value;//in javascript if you want to take whatever triggered from the event you can do event.target
+                console.log(key,event.target.checked);
+                dataJSON[key].status = event.target.checked;
+                
+            }
+            
+            /*
             var dataJSON = JSON.parse(data);// we convert data to JSON format
 
             var output = document.getElementById('output');
@@ -51,7 +79,7 @@
                 console.log(key,event.target.checked);
                 dataJSON.tasks[key] = event.target.checked;
                 
-            }
+            }*/
         </script>
 </body>
 </html>
